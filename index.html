@@ -15,62 +15,99 @@
 			rel="stylesheet"
 			href="./css/index.css"
 		/>
-		<style></style>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
-		<p>Página de login</p>
-		<form>
-			<label>
-				Nome:
-				<input
-					type="text"
-					name="text"
-					id="input-name"
-				/>
-			</label>
-			<label>
-				E-mail:
-				<input
-					type="email"
-					name="email"
-					id="input-email"
-				/>
-			</label>
-			<label>
-				Senha:
-				<input
-					type="password"
-					name="password"
-					id="input-password"
-				/>
-			</label>
-			<label>
-				CPF / CNJP:
-				<input
-					type="text"
-					name="cpf-cnpj"
-					id="input-cpf-cnpj"
-				/>
-			</label>
-			<label>
-				Data de Nascimento:
-				<input
-					type="date"
-					name="birth-date"
-					id="input-birth-date"
-				/>
-			</label>
-			<label>
-				Termos:
-				<input
-					type="checkbox"
-					name="terms"
-					id="input-terms"
-				/>
-			</label>
+		<div
+			id="background-image"
+			class="page-half"
+		></div>
+		<form class="page-half flex-column">
+			<div class="flex-column">
+				<label class="flex-column input-container">
+					Usuário:
+					<span class="input-icon-holder">
+						<input
+							type="text"
+							name="input-username"
+							id="input-username"
+						/>
+						<img
+							class="icon-input"
+							src="./img/user-solid.svg"
+							alt="Pessoa"
+						/>
+					</span>
+				</label>
+				<label class="flex-column input-container">
+					Senha:
+					<span class="input-icon-holder">
+						<input
+							type="password"
+							name="input-password"
+							id="input-password"
+						/>
+						<img
+							src="./img/eye-solid.svg"
+							alt="Olho aberto"
+							class="icon-input"
+						/>
+					</span>
+				</label>
+				<label class="flex-column input-container">
+					E-mail:
+					<span class="input-icon-holder">
+						<input
+							type="email"
+							name="input-email"
+							id="input-email"
+						/>
+						<img
+							src="./img/envelope-solid.svg"
+							alt="Envelope"
+							class="icon-input"
+						/>
+					</span>
+				</label>
+				<label class="flex-column input-container">
+					CPF / CNPJ:
+					<input
+						type="text"
+						name="input-cpf-cnpj"
+						id="input-cpf-cnpj"
+					/>
+				</label>
+				<label class="flex-column input-container">
+					Data de Nascimento:
+					<span class="input-icon-holder">
+						<input
+							type="datetime"
+							name="input-birth-date"
+							id="input-birth-date"
+						/>
+						<img
+							src="./img/calendar-solid.svg"
+							alt="Calendário"
+							class="icon-input"
+						/>
+					</span>
+				</label>
+			</div>
 			<input
 				type="button"
-				value="Cadastre-se"
+				value="Criar conta"
 			/>
 		</form>
 	</body>
