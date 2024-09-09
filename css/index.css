@@ -1,25 +1,7 @@
-body {
-    background-color: #e0dcdc;
-}
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #aa1389;
-
-    width: fit-content;
-    height: fit-content;
-
-    padding: 48px 24px;
-    border-radius: 10px;
-
-    color: #ffffff;
-}
-
-.p{
-    align-items: center;
-    color: white;
-
-
+:root {
+	--primary-color: #ef9523;
+	--primary-color-first-variant: #ef9523;
+	--primary-color-second-variant: #c58b3e;
+	--secondary-color: #705f49;
+	--secondary-color-variant: #9b784b;
 }
