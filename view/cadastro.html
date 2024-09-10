@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <script src="../script/index.js" defer></script>
+    <link rel="stylesheet" href="../css//cadastro.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="background-image" class="page-half"></div>
+    <form class="page-half flex-column">
+      <h1>Barbearia<br />Garagem do Rodão</h1>
+      <div class="flex-column">
+        <label class="flex-column input-container">
+          Usuário:
+          <span class="input-icon-holder">
+            <input type="text" name="input-username" id="input-username" />
+            <img
+              class="icon-input"
+              src="../img/user-solid.svg"
+              alt="Pessoa"
+              draggable="false"
+            />
+          </span>
+        </label>
+        <label class="flex-column input-container">
+          CPF / CNPJ:
+          <input type="text" name="input-cpf-cnpj" id="input-cpf-cnpj" />
+        </label>
+        <label class="flex-column input-container">
+          Data de Nascimento:
+          <span class="input-icon-holder">
+            <input type="date" name="input-birth-date" id="input-birth-date" />
+            <img
+              src="../img/calendar-solid.svg"
+              alt="Calendário"
+              class="icon-input"
+              draggable="false"
+            />
+          </span>
+        </label>
+        <label class="flex-column input-container">
+          E-mail:
+          <span class="input-icon-holder">
+            <input type="email" name="input-email" id="input-email" />
+            <img
+              src="../img/envelope-solid.svg"
+              alt="Envelope"
+              class="icon-input"
+              draggable="false"
+            />
+          </span>
+        </label>
+        <label class="flex-column input-container">
+          Senha:
+          <span class="input-icon-holder">
+            <input type="password" name="input-password" id="input-password" />
+            <img
+              src="../img/eye-solid.svg"
+              alt="Olho aberto"
+              class="icon-input"
+              id="icon-input-password"
+              draggable="false"
+            />
+          </span>
+        </label>
+        <div id="container-input-term">
+          <input type="checkbox" name="input-terms" id="input-terms" />
+          <p>
+            Aceito os
+            <a
+              href="https://www.maquiavelli.com/musicritica/a-historia-do-death-metal"
+              >termos</a
+            >
+          </p>
+        </div>
+      </div>
+      <input type="button" value="Criar conta" />
+    </form>
+  </body>
+</html>
