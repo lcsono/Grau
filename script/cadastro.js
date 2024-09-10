@@ -111,19 +111,19 @@ class RegisterHandler {
 	}
 }
 
-document
-	.querySelector('#icon-input-password')
-	.addEventListener('click', (ev) => {
-		ev.preventDefault();
+const button = document.querySelector('#icon-input-password');
 
-		const input = document.querySelector('#input-password');
+button.addEventListener('click', (ev) => {
+	const input = document.querySelector('#input-password');
 
-		if (input.type === 'password') {
-			input.type = 'text';
-		} else {
-			input.type = 'password';
-		}
-	});
+	if (input.type === 'password') {
+		input.type = 'text';
+		button.src = '../img/eye-solid.svg';
+	} else {
+		input.type = 'password';
+		button.src = '../img/eye-slash-solid.svg';
+	}
+});
 
 document
 	.querySelector('input[type="button"]')
