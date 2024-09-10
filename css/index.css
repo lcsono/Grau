@@ -15,6 +15,12 @@
 	border: 0;
 	font-family: 'inter', sans-serif;
 	color: var(--white);
+	text-decoration: none;
+}
+
+a {
+	color: var(--primary-color);
+	font-weight: 600;
 }
 
 *::selection {
@@ -122,6 +128,25 @@ label.input-container input:hover,
 	background-color: var(--white);
 }
 
+#container-input-term {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	width: fit-content;
+	justify-self: start;
+	align-self: flex-end;
+}
+
+#container-input-term p {
+	min-width: max-content;
+}
+
+#container-input-term input {
+	width: 32px;
+	aspect-ratio: 1;
+}
+
 input[type='button'] {
 	background-color: var(--primary-color);
 	padding: 12px 32px;
@@ -134,4 +159,10 @@ input[type='button'] {
 
 input[type='button']:hover {
 	transform: scale(1.05);
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+	opacity: 0;
+	transform: translateX(50%);
+	z-index: 999;
 }

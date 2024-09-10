@@ -49,36 +49,7 @@
 							class="icon-input"
 							src="./img/user-solid.svg"
 							alt="Pessoa"
-						/>
-					</span>
-				</label>
-				<label class="flex-column input-container">
-					Senha:
-					<span class="input-icon-holder">
-						<input
-							type="password"
-							name="input-password"
-							id="input-password"
-						/>
-						<img
-							src="./img/eye-solid.svg"
-							alt="Olho aberto"
-							class="icon-input"
-						/>
-					</span>
-				</label>
-				<label class="flex-column input-container">
-					E-mail:
-					<span class="input-icon-holder">
-						<input
-							type="email"
-							name="input-email"
-							id="input-email"
-						/>
-						<img
-							src="./img/envelope-solid.svg"
-							alt="Envelope"
-							class="icon-input"
+							draggable="false"
 						/>
 					</span>
 				</label>
@@ -94,7 +65,7 @@
 					Data de Nascimento:
 					<span class="input-icon-holder">
 						<input
-							type="datetime"
+							type="date"
 							name="input-birth-date"
 							id="input-birth-date"
 						/>
@@ -102,9 +73,56 @@
 							src="./img/calendar-solid.svg"
 							alt="Calendário"
 							class="icon-input"
+							draggable="false"
 						/>
 					</span>
 				</label>
+				<label class="flex-column input-container">
+					E-mail:
+					<span class="input-icon-holder">
+						<input
+							type="email"
+							name="input-email"
+							id="input-email"
+						/>
+						<img
+							src="./img/envelope-solid.svg"
+							alt="Envelope"
+							class="icon-input"
+							draggable="false"
+						/>
+					</span>
+				</label>
+				<label class="flex-column input-container">
+					Senha:
+					<span class="input-icon-holder">
+						<input
+							type="password"
+							name="input-password"
+							id="input-password"
+						/>
+						<img
+							src="./img/eye-solid.svg"
+							alt="Olho aberto"
+							class="icon-input"
+							draggable="false"
+						/>
+					</span>
+				</label>
+				<div id="container-input-term">
+					<input
+						type="checkbox"
+						name="input-terms"
+						id="input-terms"
+					/>
+					<p>
+						Aceito os
+						<a
+							href="https://www.maquiavelli.com/musicritica/a-historia-do-death-metal"
+							>termos</a
+						>
+					</p>
+				</div>
 			</div>
 			<input
 				type="button"
