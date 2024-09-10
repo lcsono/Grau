@@ -9,8 +9,9 @@ nav {
   display: flex;
   justify-content: end;
   align-items: center;
-  padding: 20px 20px;
+  padding: 24px 20px;
   background-color: #221d17;
+  container: inherit;
 }
 
 .hidden {
@@ -18,12 +19,13 @@ nav {
 }
 
 .nav ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
   margin: 0;
   display: flex;
   gap: 20px;
   color: white;
+  position: fixed;
 }
 
 .nav ul a {
@@ -34,4 +36,5 @@ nav {
 .nav ul li:hover {
   color: #ef9523;
   cursor: pointer;
+  font-size: 18px;
 }
