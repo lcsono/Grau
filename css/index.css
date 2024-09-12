@@ -12,7 +12,7 @@ body {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   padding: 24px 20px;
   background-color: var(--secondary-color);
@@ -30,6 +30,7 @@ nav {
   display: flex;
   gap: 20px;
   color: white;
+  position: fixed;
 }
 
 .nav ul a {
