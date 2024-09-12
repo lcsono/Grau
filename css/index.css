@@ -3,6 +3,30 @@
   --secondary-color: #221d17; 
 }
 
+/* Faz o conteudo da tela aparecer com uma animação de deslize */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); 
+  }
+  to {
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/*Função de rotação por enquanto não está sendo usado*/
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*Adicionando uma pequena opacidade ao trocar a imagem*/
+@keyframes fadeEffect {
+  from {opacity: 0.4}
+  to {opacity: 1}
+}
+
 body {
   font-family: Arial, sans-serif;
   padding: 0;
@@ -41,7 +65,8 @@ nav {
 .nav ul li:hover {
   color: var(--primary-color);
   cursor: pointer;
-  font-size: 18px;
+  transform: scale(1.1);
+  transition: transform 0.3s;
 }
 
 /* ----- Ícone ----- */
@@ -56,11 +81,6 @@ nav {
   /* animation: spin 2s linear infinite; */
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 /* ----- Novo contêiner para a imagem do slide e o título ----- */
 .welcome-container {
   display: flex;
@@ -71,6 +91,11 @@ nav {
   /* border-radius: 8px; */
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   /* margin: 20px; */
+
+  opacity: 0;
+  transform: translateY(-40px); 
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out; 
+  animation: slideIn 1s forwards;
 }
 
 .welcome-text {
@@ -134,6 +159,10 @@ nav {
   margin: auto;
   overflow: hidden;
 }
+.slideshow-container:hover{
+  transform: scale(1.02);
+  transition: transform 0.3s;
+}
 
 .slide {
   display: flex;
@@ -144,11 +173,6 @@ nav {
 
 .fade {
   animation: fadeEffect 2s;
-}
-
-@keyframes fadeEffect {
-  from {opacity: 0.4}
-  to {opacity: 1}
 }
 
 .slide img {
