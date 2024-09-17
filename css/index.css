@@ -4,8 +4,7 @@
   --footer-height: 50px; /* Definindo a altura do footer */
 }
 
-/* Faz o conteudo da tela aparecer com uma animação de deslize */
-
+/* Faz com que os cards aperacam animação de deslize */
 @keyframes cards-container {
   from {
     opacity: 0;
@@ -68,22 +67,22 @@ nav {
 
 /* Estilo para a área de conteúdo */
 .content-wrapper {
-  flex-grow: 1;
-  background-image: url('../img/barber1.jpg');
-  background-size: cover;
-  background-position: center;
+  flex-grow: 1; /* Faz o elemento se expandir para preencher o espaço disponível dentro de um container flexível */
+  background-image: url('../img/bg_image.jpg');
+  background-size: cover; /* Faz com que a imagem de fundo cubra todo o espaço do elemento */
+  background-position: center; /* Define o contexto de empilhamento para elementos posicionados absolutamente dentro dele */
   background-repeat: no-repeat;
   position: relative;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
 
 .content-wrapper::before {
-  content: '';
+  content: ''; /* Cria um pseudo-elemento vazio */
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; /* Alinha o pseudo-elemento ao topo do .content-wrapper */
+  left: 0; /* Alinha o pseudo-elemento à esquerda do .content-wrapper */
   width: 100%;
-  height: 100%;
+  height: 100%; /* Faz com que o pseudo-elemento cubra toda a altura do .content-wrapper */
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
@@ -116,7 +115,7 @@ nav {
 }
 
 .card {
-  background-color: white;
+  background-color: rgb(212, 211, 211);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -131,14 +130,14 @@ nav {
   transform: scale(1.05);
 }
 
-/*Estilizando as imagens dos cards */
+/*Estiliza as imagens dos cards */
 .card img {
   width: 100%;
   height: 140px;
   object-fit: cover;
 }
 
-/*Estilizando as a área des texto dos cards */
+/*Estiliza a área do conteudo texto dos cards */
 .card-content {
   padding: 15px;
   text-align: center;
@@ -150,7 +149,7 @@ nav {
   margin: 1px 0;
 }
 
-/*Estilizando as tags p dos cards */
+/*Estiliza as tags p dos cards */
 .card p {
   font-size: 1em;
   color: #333;
