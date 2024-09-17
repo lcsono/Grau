@@ -1,25 +1,24 @@
 :root {
   --primary-color: #ef9523;
   --secondary-color: #6f6967;
-  --footer-height: 50px; /* Definindo a altura do footer */
 }
 
-/* Faz com que os cards aperacam de forma animada na tela */
+/* Faz com que os cards apareçam de forma animada na tela */
 @keyframes cards-container {
   from {
     opacity: 0;
-    transform: translateY(-20px); 
+    transform: translateY(-20px); /* Translada o elemento 20px para baixo */
   }
   to {
     opacity: 1; 
-    transform: translateY(0); 
+    transform: translateY(0); /* Retorna o elemento à sua posição original */
   }
 }
 
 /* Função que faz a logo ter o comportamento de rotação */
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }  /* Rotação inicial de 0 graus */
+  100% { transform: rotate(360deg); } /* Rotação final de 360 graus, completando um círculo */
 }
 
 body {
@@ -32,8 +31,10 @@ body {
   background-color: #c5bbb6;
 }
 
-html {
+/* Define a altura do elemento <html> para ocupar 100% da altura da área visível da janela do navegador, chamada de viewport */
+html, body {
   height: 100%;
+  margin: 0; /* Remove as margens padrão */
 }
 
 nav {
@@ -42,11 +43,11 @@ nav {
   align-items: center;
   padding: 14px 22px;
   background-color: var(--secondary-color);
-  z-index: 3;
+  z-index: 3;  /* Define a ordem de empilhamento do contêiner em relação a outros elementos */
 }
 
 .nav ul {
-  list-style-type: none;
+  list-style-type: none; /* Remove os bullets (são os . que aparecem ao criar listas) padrão */
   padding: 0;
   margin: 0;
   display: flex;
@@ -55,8 +56,8 @@ nav {
 }
 
 .nav ul a {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none; /* Remove o sublinhado padrão dos links para um visual mais limpo */
+  color: inherit; /* Faz com que a cor dos links herde a cor do elemento pai, garantindo consistência com o design do menu */
 }
 
 .nav ul li:hover {
@@ -65,10 +66,12 @@ nav {
   transform: scale(1.1);
   transition: transform 0.3s;
 }
+
+/* Estiliza a logo para exibição e animação */
 .logo {
-  height: 24px;
+  height: 24px; /* Define a altura da logo para 24 pixels, mantendo o tamanho consistente no layout */
   cursor: pointer;
-  animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;/*"spin" faz a logo girar continuamente,linear` garante uma rotação suave e contínua sem alterações na velocidade, `infinite` faz com que a animação se repita indefinidamente. */
 }
 
 /* Estilo para a área de conteúdo */
@@ -76,7 +79,7 @@ nav {
   flex-grow: 1; /* Faz o elemento se expandir para preencher o espaço disponível dentro de um container flexível */
   background-image: url('../img/bg_image.jpg');
   background-size: cover; /* Faz com que a imagem de fundo cubra todo o espaço do elemento */
-  background-position: center; /* Define o contexto de empilhamento para elementos posicionados absolutamente dentro dele */
+  background-position: center;
   background-repeat: no-repeat;
   position: relative;
   padding-bottom: 40px;
@@ -90,14 +93,13 @@ nav {
   width: 100%;
   height: 100%; /* Faz com que o pseudo-elemento cubra toda a altura do .content-wrapper */
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 1;  /* Define a ordem de empilhamento do contêiner em relação a outros elementos */
 }
 
 .boas_vindas {
   z-index: 2;
   position: relative;
   text-align: center;
-  /* padding: 17px 10px; */
 }
 
 .boas_vindas h1 {
@@ -116,18 +118,17 @@ nav {
 
 /* Cards abaixo do texto de boas-vindas */
 .cards-container {
-  z-index: 2;
+  z-index: 2; /* Define a ordem de empilhamento do contêiner em relação a outros elementos */
   position: relative;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Permite que os itens filhos se movam para a linha seguinte, se necessário */
   padding: 20px;
   gap: 20px;
   margin-top: 2.1vw; /* Margem superior responsiva */
-  animation: cards-container 1s forwards;
+  animation: cards-container 1.5s forwards; /* Aplica uma animação chamada "cards-container" com duração de 1,5 segundos e mantém o estado final da animação */
 }
-
 
 .card {
   background-color: rgb(212, 211, 211);
@@ -137,7 +138,7 @@ nav {
   width: 25vw;
   max-width: 400px;
   min-width: 250px;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; /* Define transições suaves para transformações, cor da borda e sombra */
   cursor: pointer;
   border: 2px solid transparent;
 }
@@ -147,45 +148,45 @@ nav {
   border-color: var(--primary-color); /* Cor da borda ao passar o mouse */
 }
 
-/*Estiliza as imagens dos cards */
+/* Estiliza as imagens dos cards */
 .card img {
   width: 100%;
   height: 140px;
   object-fit: cover;
 }
 
-/*Estiliza a área do conteudo texto dos cards */
+/* Estiliza a área do conteúdo texto dos cards */
 .card-content {
   padding: 15px;
   text-align: center;
 }
 
-/*Estilizando as tags h2 dos cards*/
+/* Estiliza as tags h2 dos cards */
 .card h2 {
   font-size: 1.5em;
   margin: 1px 0;
 }
 
-/*Estiliza as tags p dos cards */
+/* Estiliza as tags p dos cards */
 .card p {
   font-size: 1em;
   color: #333;
 }
 
-#audio {
-  visibility: hidden;/* Esconde o elemento de áudio */
+#audio { 
+  visibility: hidden; /* Esconde o elemento de áudio */
 }
 
+/* Estiliza o elemento footer (rodapé) da página */
 footer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* Organiza os itens do footer em uma coluna */
+  align-items: center; /* Alinha todos os itens filhos horizontalmente ao centro */
   background-color: var(--secondary-color);
   color: white;
-  height: #333;
-  overflow: hidden;
-  z-index: 3;
-  flex-shrink: 0;
+  overflow: hidden; /* Oculta qualquer conteúdo que exceda as dimensões do footer */
+  z-index: 3; /* Define a ordem de empilhamento do footer em relação a outros elementos */
+  flex-shrink: 0; /* Impede que o footer encolha em tamanhos de tela menores */
   padding: 0px;
 }
 
