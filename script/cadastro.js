@@ -105,8 +105,12 @@ class RegisterHandler {
 
 		const response = await fetch(this.#BASE_URL + '/user', fetchOptions);
 
-		if (response.status !== 201) {
+		if (response.status !== 201 && response.status !== 200) {
 			alert('Ocorreu um erro ao tentar se cadastrar');
+		} else {
+			alert('Conta cadastrada com sucesso!')
+
+			window.location.href = "../index.html"
 		}
 	}
 }
