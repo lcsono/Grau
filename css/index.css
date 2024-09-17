@@ -33,9 +33,9 @@ html {
 
 nav {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
+  padding: 14px 22px;
   background-color: var(--secondary-color);
   z-index: 3;
 }
@@ -59,6 +59,11 @@ nav {
   cursor: pointer;
   transform: scale(1.1);
   transition: transform 0.3s;
+}
+.logo {
+  height: 28px;
+  color: var(--primary-color);
+  /* cursor: pointer; */
 }
 
 /* Estilo para a área de conteúdo */
@@ -107,7 +112,7 @@ nav {
   padding: 20px;
   gap: 20px;
   margin-top: 0px;
-  animation: cards-container 1.5s forwards
+  animation: cards-container 1s forwards
 }
 
 .card {
@@ -153,28 +158,35 @@ nav {
 
 footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--secondary-color);
-  color: var(--primary-color);
-  height: var(--footer-height);
+  color: white;
+  height: #333;
   overflow: hidden;
   z-index: 3;
-  flex-shrink: 0; /* Para evitar que o footer seja redimensionado */
+  flex-shrink: 0;
+  padding: 0px;
 }
 
-.slide-text {
-  display: inline-block;
-  white-space: nowrap;
-  animation: slide 10s linear infinite;
-  font-size: medium;
+.icons {
+  display: flex;
+  gap: 8px;
 }
 
-@keyframes slide {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.copyright {
+  margin-top: 8px;
+  font-size: 0.9em;
+  display: flex;
+}
+
+/* joga as imagens 10px ppara baixo*/
+.copyright img {
+  margin-top: 10px;
 }
