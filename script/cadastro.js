@@ -101,13 +101,13 @@ class RegisterHandler {
 			return;
 		}
 
-		console.log({ body });
-
 		const fetchOptions = this.#getExternalAPIFetchOptions(body);
 
 		const response = await fetch(this.#BASE_URL + '/user', fetchOptions);
 
-		console.log(response);
+		if (response.status !== 201) {
+			alert('Ocorreu um erro ao tentar se cadastrar');
+		}
 	}
 }
 
