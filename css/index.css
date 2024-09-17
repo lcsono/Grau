@@ -62,7 +62,7 @@ nav {
 .logo {
   height: 28px;
   color: var(--primary-color);
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 /* Estilo para a área de conteúdo */
