@@ -8,7 +8,7 @@
   </head>
   <body>
     <nav class="nav">
-      <img src="./img/bigode.png" alt="Logo Barber Shop" class="logo" />
+      <img src="./img/bigode.png" alt="Logo Barber Shop" class="logo" id="audioControl" />
       <ul>
         <a href="./view/login.html"
           ><strong><li>Login</li></strong></a
@@ -21,7 +21,7 @@
 
     <div class="content-wrapper">
       <div class="boas_vindas">
-        <h1>Sejam bem vindos ao nosso salão</h1>
+        <h1>Seja bem vindos ao nosso salão</h1>
         <br />
         <!-- <p style="color: rgba(255, 255, 255, 0.733)">sfd tgxxhnbggvhjkhjkkl</p> -->
       </div>
@@ -36,14 +36,14 @@
           </div>
         </div>
         <div class="card">
-          <img src="./img/bg_image.jpg" alt="Serviço 2" />
+          <img src="./img/barba.jpeg" alt="Serviço 2" />
           <div class="card-content">
             <h2>Barba</h2>
             <p>Faça a sua barba conosco.</p>
           </div>
         </div>
         <div class="card">
-          <img src="./img/bg_image.jpg" alt="Serviço 3" />
+          <img src="./img/sobrancelha.jpeg" alt="Serviço 3" />
           <div class="card-content">
             <h2>Sobrancelha</h2>
             <p>Nós cuidamos das suas sobrancelha.</p>
@@ -51,6 +51,11 @@
         </div>
       </div>
     </div>
+
+    <audio id="backgroundMusic" autoplay>
+      <source src="./musica.mp3" type="audio/mpeg" />
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
 
     <!-- Footer com animação de slide para os nomes -->
     <footer class="footer">
@@ -71,5 +76,6 @@
         </div>
       </div>
     </footer>
+     <script src="./script/index.js" defer></script>
   </body>
 </html>

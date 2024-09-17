@@ -4,7 +4,7 @@
   --footer-height: 50px; /* Definindo a altura do footer */
 }
 
-/* Faz com que os cards aperacam animação de deslize */
+/* Faz com que os cards aperacam de forma animada na tela */
 @keyframes cards-container {
   from {
     opacity: 0;
@@ -153,6 +153,10 @@ nav {
 .card p {
   font-size: 1em;
   color: #333;
+}
+
+#audio {
+  visibility: hidden;/* Esconde o elemento de áudio */
 }
 
 footer {
