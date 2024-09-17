@@ -16,6 +16,12 @@
   }
 }
 
+/* Função que faz a logo ter o comportamento de rotação */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -61,8 +67,8 @@ nav {
 }
 .logo {
   height: 28px;
-  color: var(--primary-color);
   cursor: pointer;
+  animation: spin 2s linear infinite;
 }
 
 /* Estilo para a área de conteúdo */

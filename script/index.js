@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const audio = document.getElementById('backgroundMusic');
   const logo = document.getElementById('audioControl');
 
+  // Verifica se os elementos de áudio e logo foram encontrados corretamente
   if (!audio || !logo) {
     console.error('Elemento de áudio ou logo não encontrado.');
     return;
