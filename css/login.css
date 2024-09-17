@@ -1,0 +1,36 @@
+:root {
+  --primary-color: #ef9523;
+  --secondary-color: #6f6967;
+}
+
+body {
+  background-color: var(--secondary-color);
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Translada o elemento 20px para baixo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Retorna o elemento à sua posição original */
+  }
+}
+
+.messege {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centraliza verticalmente */
+  margin: 20px;
+}
+
+.messege h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  animation: fadeInSlide 1.5s ease-in-out forwards;
+  border: 3px solid var(--primary-color); /* Adiciona borda ao redor do texto */
+  padding: 10px 20px;
+  border-radius: 10px; /* Arredonda as bordas */
+}
