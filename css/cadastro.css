@@ -144,6 +144,7 @@ label.input-container input:hover,
 #container-input-term input {
 	width: 18px;
 	aspect-ratio: 1;
+	cursor: pointer;
 }
 
 input[type='button'] {
