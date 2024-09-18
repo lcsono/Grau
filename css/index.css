@@ -96,26 +96,26 @@ nav {
 .boas_vindas {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centraliza verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; 
+  align-items: center; 
   text-align: center;
   z-index: 2;
   flex-grow: 1;
   position: relative;
-  padding: 0px; /* Adiciona padding para dar espaço em torno do texto */
+  padding: 0px; 
 }
 
 .boas_vindas h1 {
   color: rgb(255, 255, 255);
-  font-size: 4.5vw;
+  font-size: 4.2vw;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .boas_vindas p {
   line-height: 1.5;
-  font-size: 2vw;
-  margin: 0 10% 0% 10%;
+  font-size: 1.8vw;
+  margin: 0 6% 0% 6%;
   color: rgba(255, 255, 255, 0.74);
 }
 
