@@ -71,13 +71,15 @@ nav {
 }
 
 .content-wrapper {
-  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space between header and cards */
+  flex-grow: 1;
   background-image: url('../img/bg_image.jpg');
-  background-size: cover; 
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  padding-bottom: 40px;
 }
 
 .content-wrapper::before {
@@ -92,23 +94,29 @@ nav {
 }
 
 .boas_vindas {
-  z-index: 2;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
   text-align: center;
+  z-index: 2;
+  flex-grow: 1;
+  position: relative;
+  padding: 0px; /* Adiciona padding para dar espaço em torno do texto */
 }
 
 .boas_vindas h1 {
-  color: rgba(255, 255, 255, 0.884);
-  font-size: 4vw;
+  color: rgb(255, 255, 255);
+  font-size: 4.5vw;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .boas_vindas p {
-  line-height: 1.5; 
-  font-size: 1.5vw; 
-  margin: 0 10% 2vw; 
-  color: rgba(255, 255, 255, 0.705);
+  line-height: 1.5;
+  font-size: 2vw;
+  margin: 0 10% 0% 10%;
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .cards-container {
