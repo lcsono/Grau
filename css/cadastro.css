@@ -1,10 +1,13 @@
 :root {
-	--primary-color: #ef9523;
+	--primary-color: #ef9523; 
 	--primary-color-first-variant: #ef9523;
-	--primary-color-second-variant: #c58b3e;
-	--secondary-color: #705f49;
-	--black: #221d17;
-	--white: #eae3da;
+	--primary-color-second-variant: #c58b3e; 
+	--secondary-color: #705f49; 
+	--black: #221d17; 
+	--white: #eae3da; 
+	--input-bg-color: #333; 
+	--input-border-color: #555; 
+	--input-focus-color: #ef9523; 
 }
 
 * {
@@ -59,11 +62,12 @@ h1 {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	border-bottom-right-radius: 26rem;
 }
 
 form.page-half {
 	height: 100%;
-	padding: 24px;
+	padding: 74px;
 	gap: 8px;
 }
 
@@ -112,19 +116,21 @@ label.input-container input,
 	border-radius: 5px;
 	font-size: 1.2rem;
 	color: var(--white);
-	background-color: var(--black);
+	background-color: var(--input-bg-color); /* Cor de fundo dos inputs */
+	border: 1px solid var(--input-border-color); /* Cor da borda dos inputs */
 	transition: 100ms ease all;
 }
 
 label.input-container input:focus,
 .input-icon-holder input:focus {
-	background-color: var(--primary-color-second-variant);
+	background-color: var(--input-bg-color);
+	border-color: var(--input-focus-color);
 }
 
 label.input-container input:hover,
 .input-icon-holder input:hover {
-	color: var(--black);
-	background-color: var(--white);
+  color: var(--white); /* Texto dos inputs ao passar o mouse */
+	background-color: var(--input-bg-color);
 }
 
 #container-input-term {
@@ -174,5 +180,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
 	.page-half:nth-child(2) {
 		max-width: 100vw;
+		padding: 36px;
 	}
 }
