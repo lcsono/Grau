@@ -1,6 +1,6 @@
 :root {
   --primary-color: #ef9523;
-  --secondary-color: #6f6967;
+  --secondary-color: #705f49;
 }
 
 @keyframes cards-container {
@@ -26,7 +26,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #c5bbb6;
+  background-color: var(--secondary-color);
 }
 
 html, body {
