@@ -1,200 +1,200 @@
 :root {
-	--primary-color: #ef9523; 
-	--primary-color-first-variant: #ef9523;
-	--primary-color-second-variant: #c58b3e; 
-	--secondary-color: #705f49; 
-	--black: #221d17; 
-	--white: #eae3da; 
-	--input-bg-color: #333; 
-	--input-border-color: #555; 
-	--input-focus-color: #ef9523; 
+  --primary-color: #ef9523;
+  --primary-color-first-variant: #ef9523;
+  --primary-color-second-variant: #c58b3e;
+  --secondary-color: #705f49;
+  --black: #221d17;
+  --white: #eae3da;
+  --input-bg-color: #333;
+  --input-border-color: #555;
+  --input-focus-color: #ef9523;
 }
 
 @keyframes page-half {
   from {
     opacity: 0;
-    transform: translateY(-20px); 
+    transform: translateY(-20px);
   }
   to {
-    opacity: 1; 
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	outline: none;
-	border: 0;
-	font-family: 'inter', sans-serif;
-	color: var(--white);
-	text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: 0;
+  font-family: "inter", sans-serif;
+  color: var(--white);
+  text-decoration: none;
 }
 
 a {
-	color: var(--primary-color);
-	font-weight: 600;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 *::selection {
-	background-color: var(--primary-color);
-	color: var(--black);
+  background-color: var(--primary-color);
+  color: var(--black);
 }
 
 body {
-	height: 100vh;
-	width: 100vw;
-	background-color: var(--secondary-color);
-	display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--secondary-color);
+  display: flex;
 }
 
 h1 {
-	font-size: 2.5rem;
-	text-shadow: #221d17 0 2px 5px;
-	text-align: center;
+  font-size: 2.5rem;
+  text-shadow: #221d17 0 2px 5px;
+  text-align: center;
 }
 
 .page-half {
-	flex-grow: 1;
-	max-width: 50%;
-	animation: page-half 1.5s forwards; 
+  flex-grow: 1;
+  max-width: 50%;
+  animation: page-half 1.5s forwards;
 }
 
 .flex-column {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #background-image {
-	display: block;
-	background-image: url('https://images.unsplash.com/photo-1533245270348-821d4d5c7514?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	border-bottom-right-radius: 26rem;
+  display: block;
+  background-image: url("https://images.unsplash.com/photo-1533245270348-821d4d5c7514?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom-right-radius: 26rem;
 }
 
 form.page-half {
-	height: 100%;
-	padding: 74px;
-	gap: 8px;
+  height: 100%;
+  padding: 74px;
+  gap: 8px;
 }
 
 form div.flex-column {
-	width: 100%;
-	gap: 12px;
+  width: 100%;
+  gap: 12px;
 }
 
 label.input-container {
-	width: 100%;
-	font-size: 1.5rem;
-	font-weight: 700;
-	align-items: start;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  align-items: start;
 }
 
 label.input-container input,
 .input-icon-holder,
 .input-icon-holder input {
-	width: 100%;
+  width: 100%;
 }
 
 .input-icon-holder {
-	position: relative;
+  position: relative;
 }
 
 input {
-	padding-right: 12px;
-	width: 100%;
-	box-sizing: border-box;
+  padding-right: 12px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .icon-input {
-	position: absolute;
-	right: 12px;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 20px;
-	height: 20px;
-	cursor: pointer;
-	color: white;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: white;
 }
 
 label.input-container input,
 .input-icon-holder input {
-	padding: 6px 12px;
-	border-radius: 5px;
-	font-size: 1rem;
-	color: var(--white);
-	background-color: var(--input-bg-color); 
-	border: 1px solid var(--input-border-color); 
-	transition: 100ms ease all;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--input-bg-color);
+  border: 1px solid var(--input-border-color);
+  transition: 100ms ease all;
 }
 
 label.input-container input:focus,
 .input-icon-holder input:focus {
-	background-color: var(--input-bg-color);
-	border-color: var(--input-focus-color);
+  background-color: var(--input-bg-color);
+  border-color: var(--input-focus-color);
 }
 
 label.input-container input:hover,
 .input-icon-holder input:hover {
   color: var(--white); /* Texto dos inputs ao passar o mouse */
-	background-color: var(--input-bg-color);
+  background-color: var(--input-bg-color);
 }
 
 #container-input-term {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 8px;
-	width: fit-content;
-	justify-self: start;
-	align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  justify-self: start;
+  align-self: flex-end;
 }
 
 #container-input-term p {
-	min-width: max-content;
+  min-width: max-content;
 }
 
 #container-input-term input {
-	width: 18px;
-	aspect-ratio: 1;
-	cursor: pointer;
+  width: 18px;
+  aspect-ratio: 1;
+  cursor: pointer;
 }
 
-input[type='button'] {
-	background-color: var(--primary-color);
-	padding: 12px 24px;
-	border-radius: 12px;
-	font-size: 1.5rem;
-	font-weight: 700;
-	cursor: pointer;
-	transition: 200ms ease all;
+input[type="button"] {
+  /* background-color: var(--primary-color); */
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 200ms ease all;
 }
 
-input[type='button']:hover {
-	transform: scale(1.05);
+input[type="button"]:hover {
+  transform: scale(1.05);
 }
 
-input[type='date']::-webkit-calendar-picker-indicator {
-	opacity: 0;
-	transform: translateX(50%);
-	z-index: 999;
-	cursor: pointer;
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  transform: translateX(50%);
+  z-index: 999;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
-	#background-image {
-		display: none;
-	}
+  #background-image {
+    display: none;
+  }
 
-	.page-half:nth-child(2) {
-		max-width: 100vw;
-		padding: 36px;
-	}
+  .page-half:nth-child(2) {
+    max-width: 100vw;
+    padding: 36px;
+  }
 }
 
 /* Mensageria */
@@ -217,11 +217,11 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .alert.success {
-  background-color: #4caf50; 
+  background-color: #4caf50;
 }
 
 .alert.error {
-  background-color: #f44336; 
+  background-color: #f44336;
 }
 
 #alert-close-button {
