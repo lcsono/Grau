@@ -132,27 +132,26 @@ button.addEventListener("click", (ev) => {
 const submitButton = document.querySelector('input[type="button"]');
 submitButton.style.backgroundColor = "var(--primary-color)";
 
+function toggleSubmitButtonDisabled(button) {
+  if (!button.disabled) {
+    button.style.backgroundColor = "var(--input-bg-color)";
+    button.value = "Aguarde...";
+    button.disabled = true;
+  } else {
+    button.style.backgroundColor = "var(--primary-color)";
+    button.value = "Criar conta";
+    button.disabled = false;
+  }
+}
+
 submitButton.addEventListener("click", async (ev) => {
   ev.preventDefault();
 
-  await new Promise((resolve, reject) => {
-    submitButton.style.backgroundColor = "var(--input-bg-color)";
-    submitButton.value = "Aguarde...";
-    submitButton.disabled = true;
+  const registerHandler = new RegisterHandler();
 
-    console.log(submitButton.style);
+  toggleSubmitButtonDisabled(submitButton);
 
-    const registerHandler = new RegisterHandler();
+  await registerHandler.execute();
 
-    registerHandler
-      .execute()
-      .then(() => {
-        submitButton.style.backgroundColor = "var(--primary-color)";
-        submitButton.value = "Criar conta";
-        submitButton.disabled = false;
-
-        resolve();
-      })
-      .catch(() => reject);
-  });
+  toggleSubmitButtonDisabled(submitButton);
 });
