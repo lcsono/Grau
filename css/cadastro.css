@@ -115,7 +115,7 @@ label.input-container input:focus,
 
 label.input-container input:hover,
 .input-icon-holder input:hover {
-	color: var(--white); /* Texto dos inputs ao passar o mouse */
+	color: var(--white); /* Texto dos inputs ao input-icon-holderar o mouse */
 	background-color: var(--input-bg-color);
 }
 

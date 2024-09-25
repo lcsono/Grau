@@ -11,42 +11,75 @@
 			rel="stylesheet"
 			href="../css/login.css"
 		/>
+		<script
+			src="../script/login.js"
+			defer
+		></script>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
-		<div class="login-card">
-			<h2>Login</h2>
-			<form id="loginForm">
-				<div>
-					<label for="email">E-mail</label>
+		<form>
+			<h1>Bem-vindo de volta!</h1>
+			<div class="inputs-container">
+				<label>
+					E-mail
 					<input
-						type="text"
-						id="email"
-						name="email"
+						type="email"
+						id="input-email"
+						name="input-email"
 						placeholder="Digite seu email"
 					/>
-				</div>
-				<div>
-					<label for="password">Senha</label>
-					<input
-						type="password"
-						id="password"
-						name="password"
-						placeholder="Digite sua senha"
+					<span
+						class="error-message"
+						id="email-error-message"
 					/>
-				</div>
-				<button
-					type="button"
-					id="loginButton"
-				>
-					Entrar
-				</button>
-				<div
-					id="error-message"
-					class="error-message"
-				></div>
-			</form>
-		</div>
-
-		<script src="../script/login.js"></script>
+				</label>
+				<label>
+					Senha:
+					<span class="input-icon-holder">
+						<input
+							type="password"
+							name="input-password"
+							id="input-password"
+							placeholder="Digite usa senha"
+						/>
+						<img
+							src="../img/eye-solid-black.svg"
+							alt="Olho aberto"
+							class="icon-input"
+							id="icon-input-password"
+							draggable="false"
+						/>
+					</span>
+				</label>
+			</div>
+			<button
+				type="button"
+				id="submit-login-button"
+			>
+				Entrar
+			</button>
+			<span
+				>Ainda não possui uma conta?
+				<a
+					href="./cadastro.html"
+					class="highlight"
+					>Cadastre-se</a
+				></span
+			>
+			<span id="response-error-message" />
+		</form>
 	</body>
 </html>
