@@ -119,6 +119,13 @@ label.input-container input:hover,
 	background-color: var(--input-bg-color);
 }
 
+#form-footer {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin: 12px 0;
+}
+
 #container-input-term {
 	display: flex;
 	justify-content: center;
@@ -140,7 +147,6 @@ label.input-container input:hover,
 }
 
 input[type='button'] {
-	/* background-color: var(--primary-color); */
 	padding: 12px 24px;
 	border-radius: 12px;
 	font-size: 1.5rem;
@@ -169,40 +175,4 @@ input[type='date']::-webkit-calendar-picker-indicator {
 		max-width: 100vw;
 		padding: 36px;
 	}
-}
-
-/* Mensageria */
-.hidden {
-	display: none;
-}
-
-.alert {
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	padding: 15px;
-	border-radius: 5px;
-	color: #fff;
-	font-size: 1.2rem;
-	z-index: 1000;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.alert.success {
-	background-color: #4caf50;
-}
-
-.alert.error {
-	background-color: #f44336;
-}
-
-#alert-close-button {
-	background: none;
-	border: none;
-	color: #fff;
-	font-size: 1.2rem;
-	cursor: pointer;
-	margin-left: 15px;
 }
