@@ -73,7 +73,7 @@ form h1 {
 .inputs-container input {
 	margin-top: 6px;
 	width: 100%;
-	padding: 6px 12px;
+	padding: 12px;
 	border-radius: 5px;
 	font-size: 1rem;
 	color: var(--black);
@@ -119,11 +119,39 @@ form button:hover {
 	transform: scale(1.05);
 }
 
-form span {
+#messages-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.message {
+	text-align: end;
 	align-self: flex-end;
 }
 
-form span a {
+.message a {
 	color: var(--primary-color);
 	font-weight: 700;
+}
+
+#response-error-message {
+	align-self: flex-start;
+}
+
+@media (max-width: 1200px) {
+	form {
+		width: 80%;
+	}
+}
+
+@media (max-width: 768px) {
+	form {
+		width: 100%;
+		height: 100%;
+	}
+
+	.inputs-container input {
+		padding: 6px 12px;
+	}
 }
