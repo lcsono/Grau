@@ -1,7 +1,6 @@
 :root {
   --primary-color: #ef9523;
-  --secondary-color: #6f6967;
-  --background-color: #f4f4f4;
+  --secondary-color: #705f49;
 }
 
 @keyframes fadeInSlide {
@@ -16,40 +15,25 @@
 }
 
 body {
-  background-color: var(--secondary-color);
-  font-family: Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.messege {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.messege h2 {
-  color: var(--primary-color);
-  font-size: 2rem;
-  animation: fadeInSlide 1.5s ease-in-out forwards;
-  border: 3px solid var(--primary-color);
-  padding: 10px 20px;
-  border-radius: 10px;
 }
 
 .login-card {
-  background-color: var(--background-color);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 300px;
-  animation: fadeInSlide 1s ease-in-out forwards;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(177, 175, 175, 0.459); 
+  animation: fadeInSlide 1.5s ease-in-out forwards;
+  max-width: 400px;
+  width: 100%;
+  margin: 20px; 
 }
 
 .login-card h2 {
@@ -63,15 +47,22 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
+  margin-top: 10px;
 }
 
 .login-card input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 4px;
   border: 1px solid var(--secondary-color);
   border-radius: 5px;
   box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.login-card input:focus {
+  border-color: var(--primary-color);
+  outline: none;
 }
 
 .login-card button {
@@ -84,8 +75,21 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
 .login-card button:hover {
   background-color: #f28d1a;
+}
+
+.error-message {
+  color: red;
+  margin-top: 2px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    margin: 40px 20px;
+  }
 }

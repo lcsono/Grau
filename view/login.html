@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tela de Login</title>
-    <link rel="stylesheet" href="../css/login.css" />
-  </head>
-  <body>
-    <!-- <div class="messege">
-      <h2>Em breve estaremos com novas atualizações</h2>
-    </div> -->
-
-    <div class="login-card">
-      <h2>Login</h2>
-      <form id="loginForm">
-        <div>
-          <label for="email">E-mail</label>
-          <input type="text" id="email" name="email" placeholder="Digite seu email" />
-        </div>
-        <div>
-          <label for="password">Senha</label>
-          <input type="password" id="password" name="password" placeholder="Digite sua senha" />
-        </div>
-        <button type="button" id="loginButton">Entrar</button>
-        <div id="error-message" class="error-message"></div>
-      </form>
-    </div>
-
-    <script src="../script/login.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tela de Login</title>
+  <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body>
+  <div class="login-card">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu email" />
+        <div id="email-error" class="error-message"></div> 
+      </div>
+      <div>
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" />
+        <div id="password-error" class="error-message"></div> 
+      </div>
+      <button type="button" id="loginButton">Entrar</button>
+      <!-- <div id="error-message" class="error-message"></div> -->
+    </form>
+  </div>
+  <div id="background-image" class="page-half"></div>
+  <script src="../script/login.js" defer></script>
+</body>
 </html>
