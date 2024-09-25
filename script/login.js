@@ -4,8 +4,6 @@ document.getElementById('loginButton').addEventListener('click', async function 
 
   document.getElementById('email-error').textContent = '';
   document.getElementById('password-error').textContent = '';
-  const errorMessage = document.getElementById('error-message');
-  errorMessage.textContent = '';
 
   let valid = true;
 
@@ -18,6 +16,10 @@ document.getElementById('loginButton').addEventListener('click', async function 
   }
 
   if (!valid) return;
+
+  const loginButton = document.getElementById('loginButton');
+  loginButton.textContent = 'Aguarde a resposta...';
+  loginButton.disabled = true;
 
   const url = 'https://go-wash-api.onrender.com/api/';
   const session = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
@@ -39,17 +41,19 @@ document.getElementById('loginButton').addEventListener('click', async function 
 
     if (!response.ok) {
       const errorData = await response.json();
-      console.log('Erro:', errorData);
-      throw new Error(errorData.errors || 'Erro desconhecido');
+      alert('Erro: ' + errorData.data.errors);
     }
 
     const respData = await response.json();
-    console.log('Login realizado com sucesso!' + 'resposta:', respData);
-    alert("Login realizado com sucesso!");
-    // window.location.href = "../view/home.html";
+    sessionStorage.setItem('userData', JSON.stringify(respData));
+
+    window.location.href = "../view/home.html";
 
   } catch (error) {
     errorMessage.textContent = error.message;
     errorMessage.style.color = 'red';
+  } finally {
+    loginButton.textContent = 'Entrar';
+    loginButton.disabled = false;
   }
 });
