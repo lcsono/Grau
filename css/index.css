@@ -1,14 +1,4 @@
-:root {
-	--primary-color: #ef9523;
-	--primary-color-first-variant: #ef9523;
-	--primary-color-second-variant: #c58b3e;
-	--secondary-color: #705f49;
-	--black: #221d17;
-	--white: #eae3da;
-	--input-bg-color: #333;
-	--input-border-color: #555;
-	--input-focus-color: #ef9523;
-}
+@import url(./default.css);
 
 @keyframes spin {
 	0% {
@@ -17,21 +7,6 @@
 	100% {
 		transform: rotate(360deg);
 	}
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	outline: none;
-	font-family: 'Inter';
-	color: white;
-	text-decoration: none;
-}
-
-*::selection {
-	background-color: var(--primary-color);
-	color: var(--black);
 }
 
 span.highlight {

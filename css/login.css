@@ -1,95 +1,156 @@
-:root {
-  --primary-color: #ef9523;
-  --secondary-color: #705f49;
-}
+@import url(./default.css);
 
 @keyframes fadeInSlide {
-  0% {
-    opacity: 0;
-    transform: translateY(-80px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(0);
+	}
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
-  background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+	background: url(../img/login-background.jpg) #221d1788;
+	background-size: cover;
+	background-blend-mode: multiply;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	animation: fadeInSlide 1.5s ease-out;
 }
 
-.login-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 8px 30px rgba(177, 175, 175, 0.459); 
-  animation: fadeInSlide 1.5s ease-in-out forwards;
-  max-width: 400px;
-  width: 100%;
-  margin: 20px; 
+form {
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border: 1px solid rgba(0, 0, 0, 1);
+	border-radius: 6px;
+	width: 40%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+	padding: 56px;
 }
 
-.login-card h2 {
-  text-align: center;
-  color: var(--primary-color);
-  margin-bottom: 20px;
+form h1 {
+	text-align: center;
+	color: var(--primary-color);
+	font-weight: 700;
+	font-size: 2.5rem;
 }
 
-.login-card label {
-  color: var(--secondary-color);
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
-  margin-top: 10px;
+.inputs-container,
+.input-icon-holder {
+	width: 100%;
 }
 
-.login-card input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 4px;
-  border: 1px solid var(--secondary-color);
-  border-radius: 5px;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
+.inputs-container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
-.login-card input:focus {
-  border-color: var(--primary-color);
-  outline: none;
+.inputs-container label {
+	color: var(--secondary-color);
+	font-weight: 700;
+	font-size: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	width: 100%;
 }
 
-.login-card button {
-  width: 100%;
-  padding: 10px;
-  background-color: var(--primary-color);
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
+.inputs-container input {
+	margin-top: 6px;
+	width: 100%;
+	padding: 12px;
+	border-radius: 5px;
+	font-size: 1rem;
+	color: var(--black);
+	background-color: var(--white);
+	border: 1px solid var(--primary-color);
+	transition: 100ms ease all;
 }
 
-.login-card button:hover {
-  background-color: #f28d1a;
+.input-icon-holder {
+	position: relative;
+}
+
+.icon-input {
+	position: absolute;
+	right: 12px;
+	top: 55%;
+	transform: translateY(-50%);
+	width: 20px;
+	aspect-ratio: 1;
+	cursor: pointer;
 }
 
 .error-message {
-  color: red;
-  margin-top: 2px;
-  font-size: 0.9rem;
+	color: #ee4646;
+	font-size: 1rem;
+	font-weight: 500;
+	margin-top: 2px;
+}
+
+form input[type='button'] {
+	width: 100%;
+	background-color: var(--primary-color);
+	color: white;
+	font-weight: 700;
+	font-size: 1.5rem;
+	padding: 12px 24px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 300ms ease;
+}
+
+form input[type='button']:hover {
+	transform: scale(1.05);
+}
+
+#messages-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.message {
+	text-align: end;
+	align-self: flex-end;
+}
+
+.message a {
+	color: var(--primary-color);
+	font-weight: 700;
+}
+
+#response-error-message {
+	align-self: flex-start;
+}
+
+@media (max-width: 1200px) {
+	form {
+		width: 80%;
+	}
 }
 
 @media (max-width: 768px) {
-  .login-card {
-    margin: 40px 20px;
-  }
+	form {
+		width: 100%;
+		height: 100%;
+	}
+
+	.inputs-container input {
+		padding: 6px 12px;
+	}
 }

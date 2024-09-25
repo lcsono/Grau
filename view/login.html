@@ -1,30 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tela de Login</title>
-  <link rel="stylesheet" href="../css/login.css" />
-</head>
-<body>
-  <div class="login-card">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <div>
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="Digite seu email" />
-        <div id="email-error" class="error-message"></div> 
-      </div>
-      <div>
-        <label for="password">Senha</label>
-        <input type="password" id="password" name="password" placeholder="Digite sua senha" />
-        <div id="password-error" class="error-message"></div> 
-      </div>
-      <button type="button" id="loginButton">Entrar</button>
-      <!-- <div id="error-message" class="error-message"></div> -->
-    </form>
-  </div>
-  <div id="background-image" class="page-half"></div>
-  <script src="../script/login.js" defer></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Tela de Login</title>
+		<link
+			rel="stylesheet"
+			href="../css/login.css"
+		/>
+		<script
+			src="../script/login.js"
+			defer
+		></script>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<form>
+			<h1>Bem-vindo de volta!</h1>
+			<div class="inputs-container">
+				<label>
+					E-mail
+					<input
+						type="email"
+						id="input-email"
+						name="input-email"
+						placeholder="Digite seu email"
+					/>
+					<span
+						class="error-message"
+						id="email-error-message"
+					/>
+				</label>
+				<label>
+					Senha:
+					<span class="input-icon-holder">
+						<input
+							type="password"
+							name="input-password"
+							id="input-password"
+							placeholder="Digite usa senha"
+						/>
+						<img
+							src="../img/eye-slash-solid-black.svg"
+							alt="Olho aberto"
+							class="icon-input"
+							id="icon-input-password"
+							draggable="false"
+						/>
+					</span>
+					<span
+						class="error-message"
+						id="password-error-message"
+					/>
+				</label>
+			</div>
+			<input
+				type="button"
+				value="Entrar"
+				id="submit-login-button"
+			/>
+			<span id="messages-container">
+				<span
+					id="response-error-message"
+					class="error-message"
+				></span>
+				<span class="message"
+					>Ainda não possui uma conta?
+					<a
+						href="./cadastro.html"
+						class="highlight"
+						>Cadastre-se</a
+					></span
+				>
+			</span>
+		</form>
+	</body>
 </html>

@@ -134,7 +134,7 @@ submitButton.style.backgroundColor = "var(--primary-color)";
 
 function toggleSubmitButtonDisabled(button) {
   if (!button.disabled) {
-    button.style.backgroundColor = "var(--input-bg-color)";
+    button.style.backgroundColor = "var(--disabled)";
     button.value = "Aguarde...";
     button.disabled = true;
   } else {
