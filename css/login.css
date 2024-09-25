@@ -81,6 +81,16 @@ form h1 {
 	transition: 100ms ease all;
 }
 
+.inputs-container input:focus {
+	color: var(--white);
+	background-color: var(--black);
+}
+
+.inputs-container input:hover {
+	color: var(--black);
+	background-color: var(--primary-color);
+}
+
 .input-icon-holder {
 	position: relative;
 }
