@@ -1,7 +1,6 @@
 :root {
   --primary-color: #ef9523;
-  --secondary-color: #6f6967;
-  --background-color: #f4f4f4;
+  --secondary-color: #705f49;
 }
 
 @keyframes fadeInSlide {
@@ -18,37 +17,23 @@
 body {
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(to right, var(--secondary-color), var(--background-color));
+  background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-}
-
-.messege {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.messege h2 {
-  color: var(--primary-color);
-  font-size: 2rem;
-  animation: fadeInSlide 1.5s ease-in-out forwards;
-  border: 3px solid var(--primary-color);
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 0;
 }
 
 .login-card {
   background: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(177, 175, 175, 0.459); 
   animation: fadeInSlide 1.5s ease-in-out forwards;
   max-width: 400px;
   width: 100%;
+  margin: 20px; 
 }
 
 .login-card h2 {
@@ -101,4 +86,10 @@ body {
   color: red;
   margin-top: 2px;
   font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    margin: 40px 20px;
+  }
 }
