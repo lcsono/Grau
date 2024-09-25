@@ -52,7 +52,7 @@ body {
   animation: fadeInSlide 1s ease-in-out forwards;
 }
 
-.login-card h3 {
+.login-card h2 {
   text-align: center;
   color: var(--primary-color);
   margin-bottom: 20px;
