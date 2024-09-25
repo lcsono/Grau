@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página de Login</title>
-    <link rel="stylesheet" href="../css/login.css" />
-  </head>
-  <body>
-    <!-- <div class="messege">
-      <h2>Em breve estaremos com novas atualizações</h2>
-    </div> -->
-    
-    <div class="login-card">
-      <h3>Login</h3>
-      <form>
-        <label for="cpf">CPF</label>
-        <input type="text" id="cpf" placeholder="Digite seu CPF" required />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Login</title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+  <div class="messege">
+    <h2>Em breve estaremos com novas atualizações</h2>
+  </div>
 
-        <label for="password">Senha</label>
-        <input type="password" id="password" placeholder="Digite sua senha" required />
+  <div class="login-card">
+    <input type="email" id="email" placeholder="Digite seu E-mail" />
+    <input type="password" id="password" placeholder="Digite sua senha" />
+    <span id="errorMessage" class="error-message"></span>
+    <button id="loginButton" class="btn">Entrar</button>
+  </div>
 
-        <button type="submit">Entrar</button>
-      </form>
-    </div>
-  </body>
+  <script src="../js/login.js"></script>
+</body>
 </html>
