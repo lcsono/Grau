@@ -88,9 +88,9 @@ class LoginHandler {
 		} else if (response.status === 200) {
 			const data = await response.json();
 
-			sessionStorage.setItem('userData', JSON.stringify(data));
+			localStorage.setItem('userData', JSON.stringify(data));
 
-			window.location.href = '../index.html';
+			window.location.href = '../view/home.html';
 		}
 	}
 }
