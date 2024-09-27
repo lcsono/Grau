@@ -8,13 +8,15 @@ body {
 	flex-direction: column;
 	background-color: rgba(252, 249, 249, 0.822);
 }
-
+.h1 {
+  margin: 15px 20px 15px 20px ;
+}
 .nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 24px 32px;
-	position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  position: relative;
   background-color: #c58b3e;
 }
 
@@ -22,6 +24,7 @@ body {
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
+  margin: 15px 20px 15px 20px ;
 }
 
 .cadastro-item {
