@@ -1,6 +1,21 @@
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(252, 249, 249, 0.822);
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 24px 32px;
+	position: relative;
+  background-color: #c58b3e;
 }
 
 #cadastro-container {
