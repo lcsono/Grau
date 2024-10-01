@@ -1,1 +1,63 @@
 @import url(./default.css);
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(252, 249, 249, 0.822);
+    justify-content: center;
+    align-items: center;
+    background-color: #221d17;
+}
+
+form {
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border: 1px solid rgba(0, 0, 0, 1);
+	border-radius: 6px;
+	width: 50%;
+	height: fit-content;
+	/* display: flex; */
+	flex-direction: column;
+	/* justify-content: center; */
+	/* align-items: center; */
+	gap: 10px;
+	padding: 56px;
+}
+
+
+
+.form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 4px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  background: rgba(222, 184, 135, 0.514);
+}
+
+.login-card input:focus {
+  border-color: black;
+  outline: none;
+}
+
+.form .button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ef9523;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
