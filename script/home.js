@@ -13,7 +13,7 @@ function renderizarCadastro() {
 
     const user = dados.user;
     const nome = `
-      <div class="cadastro-item">Seja bemvindo <strong>${user.name}</strong></div>
+      <div class="cadastro-item"><strong>${user.name}</strong></div>
     `;
     const userInfo = `
         <div class="cadastro-item"><strong>ID:</strong> ${user.id}</div>
