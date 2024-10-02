@@ -1,38 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro Endereço</title>
-    <link rel="stylesheet" href="../css/endereco.css" />
-  </head>
-  <body>
-    <form class="form">
-      <h1>Cadastre o seu endereço</h1>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Cadastro Endereço</title>
+		<link
+			rel="stylesheet"
+			href="../css/endereco.css"
+		/>
+	</head>
+	<body>
+		<form class="form">
+			<h1>Cadastre o seu endereço</h1>
 
-      <label for="title">Título:</label>
-      <input type="text" id="title" name="title" />
-      <span id="title-error" class="error-message"></span>
+			<label
+				>CEP:
+				<input
+					type="text"
+					id="input-zip-code"
+					name="zip-code"
+				/>
+			</label>
 
-      <label for="cep">CEP:</label>
-      <input type="text" id="cep" name="cep" />
-      <span id="cep-error" class="error-message"></span>
+			<span
+				id="input-zip-code-error"
+				class="error-message"
+			></span>
 
-      <label for="address">Endereço:</label>
-      <input type="text" id="address" name="address" />
-      <span id="address-error" class="error-message"></span>
+			<label
+				>Título:
+				<input
+					type="text"
+					id="input-title"
+					name="title"
+				/>
+			</label>
+			<span
+				id="input-title-error"
+				class="error-message"
+			></span>
 
-      <label for="number">Número:</label>
-      <input type="text" id="number" name="number" />
-      <span id="number-error" class="error-message"></span>
+			<label
+				>Endereço:
+				<input
+					type="text"
+					id="input-address"
+					name="address"
+				/>
+			</label>
+			<span
+				id="input-address-error"
+				class="error-message"
+			></span>
 
-      <label for="complement">Complemento:</label>
-      <input type="text" id="complement" name="complement" />
-      <span id="complement-error" class="error-message"></span>
+			<label
+				>Número:
+				<input
+					type="text"
+					id="input-number"
+					name="number"
+				/>
+			</label>
+			<span
+				id="input-number-error"
+				class="error-message"
+			></span>
 
-      <input type="button" class="button" value="Cadastrar" id="button" />
-    </form>
+			<label
+				>Complemento:
+				<input
+					type="text"
+					id="input-complement"
+					name="complement"
+				/>
+			</label>
+			<span
+				id="input-complement-error"
+				class="error-message"
+			></span>
 
-    <script src="../script/endereco.js"></script>
-  </body>
+			<input
+				type="button"
+				class="button"
+				value="Cadastrar endereço"
+				id="button"
+			/>
+		</form>
+
+		<script
+			src="../script/endereco.js"
+			defer
+			type="module"
+		></script>
+	</body>
 </html>

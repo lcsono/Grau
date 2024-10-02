@@ -1,5 +1,6 @@
 import { CONSTANTS } from './constants.js';
 import { CookieManager } from './cookie-manager.js';
+import { toggleSubmitButtonDisabled } from './toggle-submit-button-disabled.js';
 
 class LoginHandler {
 	#BASE_URL;
@@ -107,26 +108,13 @@ class LoginHandler {
 	}
 }
 
-function toggleSubmitButtonDisabled(button) {
-	if (!button.disabled) {
-		button.style.backgroundColor = 'var(--disabled)';
-		button.style.cursor = 'default';
-		button.value = 'Aguarde...';
-		button.disabled = true;
-	} else {
-		button.style.backgroundColor = 'var(--primary-color)';
-		button.value = 'Criar conta';
-		button.disabled = false;
-	}
-}
-
 const buttonSubmitLogin = document.querySelector('#submit-login-button');
 
 buttonSubmitLogin.addEventListener('click', async (ev) => {
 	ev.preventDefault();
 
 	try {
-		toggleSubmitButtonDisabled(buttonSubmitLogin);
+		toggleSubmitButtonDisabled(buttonSubmitLogin, 'Entrar');
 
 		const loginHandler = new LoginHandler();
 
@@ -135,7 +123,7 @@ buttonSubmitLogin.addEventListener('click', async (ev) => {
 		document.querySelector('#response-error-message').textContent =
 			'Erro inesperado';
 	} finally {
-		toggleSubmitButtonDisabled(buttonSubmitLogin);
+		toggleSubmitButtonDisabled(buttonSubmitLogin, 'Entrar');
 	}
 });
 
