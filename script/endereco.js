@@ -1,59 +1,89 @@
-document.getElementById('loginButton').addEventListener('click', async function () {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+// Função para validar um campo e exibir a mensagem de erro, se necessário
+function validateField(fieldId, errorMessage) {
+  const field = document.getElementById(fieldId);
+  const errorField = document.getElementById(`${fieldId}-error`);
   
-    document.getElementById('email-error').textContent = '';
-    document.getElementById('password-error').textContent = '';
-  
-    let valid = true;
-  
-    if (!email) {
-      document.getElementById('email-error').textContent = 'O campo e-mail é obrigatório.';
-      valid = false;
-    } else if (!password) {
-      document.getElementById('password-error').textContent = 'O campo senha é obrigatório.';
-      valid = false; 
-    }
-  
-    if (!valid) return;
-  
-    const loginButton = document.getElementById('loginButton');
-    loginButton.textContent = 'Aguarde a resposta...';
-    loginButton.disabled = true;
-  
-    const url = 'https://go-wash-api.onrender.com/api/';
-    const session = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
-    const data = {
-      email: email,
-      password: password,
-      user_type_id: 1,
-    };
-  
-    try {
-      const response = await fetch(url + 'login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Cookie: `gowash_session=${session}`,
-        },
-        body: JSON.stringify(data),
-      });
-  
-      if (!response.ok) {
-        const errorData = await response.json();
-        alert('Erro: ' + errorData.data.errors);
-      }
-  
-      const respData = await response.json();
-      sessionStorage.setItem('userData', JSON.stringify(respData));
-  
-      window.location.href = "../view/home.html";
-  
-    } catch (error) {
-      errorMessage.textContent = error.message;
-      errorMessage.style.color = 'red';
-    } finally {
-      loginButton.textContent = 'Entrar';
-      loginButton.disabled = false;
+  if (!field.value.trim()) {
+    errorField.textContent = errorMessage;
+    return false;
+  } else {
+    errorField.textContent = ''; 
+    return true;
+  }
+}
+
+function validateFields() {
+  const validations = [
+    { fieldId: 'title', message: 'O campo título é obrigatório.' },
+    { fieldId: 'cep', message: 'O campo CEP é obrigatório.' },
+    { fieldId: 'address', message: 'O campo endereço é obrigatório.' },
+    { fieldId: 'number', message: 'O campo número é obrigatório.' }
+  ];
+
+  let allValid = true;
+
+  validations.forEach(validation => {
+    const isValid = validateField(validation.fieldId, validation.message);
+    if (!isValid) {
+      allValid = false;
     }
   });
+
+  return allValid;
+}
+
+document.getElementById("button").addEventListener("click", async function () {
+  if (!validateFields()) {
+    return; 
+  }
+
+  const title = document.getElementById("title").value;
+  const cep = document.getElementById("cep").value;
+  const address = document.getElementById("address").value;
+  const number = document.getElementById("number").value;
+  const complement = document.getElementById("complement").value;
+
+  const button = document.getElementById("button");
+  button.value = "Cadastrando...";
+  button.disabled = true;
+
+  const url = "https://go-wash-api.onrender.com/api/";
+  const session = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
+  const data = {
+    title: title,
+    cep: cep,
+    address: address,
+    number: number,
+    complement: complement,
+  };
+
+  try {
+    const response = await fetch(url + 'auth/address', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: `gowash_session=${session}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      alert("Erro: " + errorData.message);
+    } else {
+      const respData = await response.json();
+      alert("Endereço cadastrado com sucesso!");
+
+      document.getElementById("title").value = "";
+      document.getElementById("cep").value = "";
+      document.getElementById("address").value = "";
+      document.getElementById("number").value = "";
+      document.getElementById("complement").value = "";
+    }
+  } catch (error) {
+    alert("Erro ao cadastrar o endereço: " + error.message);
+  } finally {
+    button.value = "Cadastrar";
+    button.disabled = false;
+  }
+});
