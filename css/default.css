@@ -22,7 +22,57 @@
 	text-decoration: none;
 }
 
+*::placeholder {
+	color: var(--black);
+}
+
+*:hover:focus::placeholder {
+	color: var(--black);
+}
+
+*:focus::placeholder {
+	color: var(--white);
+}
+
+label {
+	color: var(--secondary-color);
+	font-weight: 700;
+	font-size: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	width: 100%;
+}
+
+input {
+	margin-top: 6px;
+	width: 100%;
+	padding: 12px;
+	border-radius: 5px;
+	font-size: 1rem;
+	color: var(--black);
+	background-color: var(--white);
+	border: 1px solid var(--primary-color);
+	transition: 100ms ease all;
+}
+
+input:focus {
+	color: var(--white);
+	background-color: var(--black);
+}
+
+input:hover {
+	color: var(--black);
+	background-color: var(--primary-color);
+}
+
 *::selection {
 	background-color: var(--primary-color);
 	color: var(--black);
+}
+
+span.highlight {
+	color: var(--primary-color);
+	font-weight: 600;
 }
