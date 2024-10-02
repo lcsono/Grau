@@ -1,89 +1,123 @@
-// Função para validar um campo e exibir a mensagem de erro, se necessário
+import { CONSTANTS } from './constants.js';
+import { CookieManager } from './cookie-manager.js';
+import { toggleSubmitButtonDisabled } from './toggle-submit-button-disabled.js';
+import { ViacepHelper } from './viacep-helper.js';
+
 function validateField(fieldId, errorMessage) {
-  const field = document.getElementById(fieldId);
-  const errorField = document.getElementById(`${fieldId}-error`);
-  
-  if (!field.value.trim()) {
-    errorField.textContent = errorMessage;
-    return false;
-  } else {
-    errorField.textContent = ''; 
-    return true;
-  }
+	const field = document.getElementById(fieldId);
+	const errorField = document.getElementById(`${fieldId}-error`);
+
+	if (!field.value.trim()) {
+		errorField.textContent = errorMessage;
+		return false;
+	} else {
+		errorField.textContent = '';
+		return true;
+	}
 }
 
 function validateFields() {
-  const validations = [
-    { fieldId: 'title', message: 'O campo título é obrigatório.' },
-    { fieldId: 'cep', message: 'O campo CEP é obrigatório.' },
-    { fieldId: 'address', message: 'O campo endereço é obrigatório.' },
-    { fieldId: 'number', message: 'O campo número é obrigatório.' }
-  ];
+	const validations = [
+		{ fieldId: 'input-title', message: 'O campo título é obrigatório.' },
+		{ fieldId: 'input-zip-code', message: 'O campo CEP é obrigatório.' },
+		{ fieldId: 'input-address', message: 'O campo endereço é obrigatório.' },
+		{ fieldId: 'input-number', message: 'O campo número é obrigatório.' },
+	];
 
-  let allValid = true;
+	let allValid = true;
 
-  validations.forEach(validation => {
-    const isValid = validateField(validation.fieldId, validation.message);
-    if (!isValid) {
-      allValid = false;
-    }
-  });
+	validations.forEach((validation) => {
+		const isValid = validateField(validation.fieldId, validation.message);
+		if (!isValid) {
+			allValid = false;
+		}
+	});
 
-  return allValid;
+	return allValid;
 }
 
-document.getElementById("button").addEventListener("click", async function () {
-  if (!validateFields()) {
-    return; 
-  }
+document.getElementById('button').addEventListener('click', async function () {
+	if (!validateFields()) {
+		return;
+	}
 
-  const title = document.getElementById("title").value;
-  const cep = document.getElementById("cep").value;
-  const address = document.getElementById("address").value;
-  const number = document.getElementById("number").value;
-  const complement = document.getElementById("complement").value;
+	const title = document.querySelector('#input-title').value;
+	const cep = document.querySelector('#input-zip-code').value;
+	const address = document.querySelector('#input-address').value;
+	const number = document.querySelector('#input-number').value;
+	const complement = document.querySelector('#input-complement').value;
 
-  const button = document.getElementById("button");
-  button.value = "Cadastrando...";
-  button.disabled = true;
+	const button = document.querySelector('#button');
+	toggleSubmitButtonDisabled(button, 'Cadastrar endereço');
 
-  const url = "https://go-wash-api.onrender.com/api/";
-  const session = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
-  const data = {
-    title: title,
-    cep: cep,
-    address: address,
-    number: number,
-    complement: complement,
-  };
+	const data = {
+		title,
+		cep,
+		address,
+		number,
+		complement,
+	};
 
-  try {
-    const response = await fetch(url + 'auth/address', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Cookie: `gowash_session=${session}`,
-      },
-      body: JSON.stringify(data),
-    });
+	try {
+		const cookieManager = new CookieManager();
+		const accessToken = cookieManager.getCookie(
+			CONSTANTS.COOKIE_ACCESS_TOKEN_KEY
+		);
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      alert("Erro: " + errorData.message);
-    } else {
-      const respData = await response.json();
-      alert("Endereço cadastrado com sucesso!");
+		const response = await fetch(CONSTANTS.GOWASH_BASE_URL + '/auth/address', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Cookie: `gowash_session=${CONSTANTS.GOWASH_SESSION}`,
+				Authorization: `Bearer ${accessToken}`,
+			},
+			body: JSON.stringify(data),
+		});
 
-      document.getElementById("title").value = "";
-      document.getElementById("cep").value = "";
-      document.getElementById("address").value = "";
-      document.getElementById("number").value = "";
-      document.getElementById("complement").value = "";
-    }
-  } catch (error) {
-    alert("Erro ao cadastrar o endereço: " + error.message);
-  } finally {
-    button.value = "Cadastrar";
-    button.disabled = false;
-  }
+		if (!response.ok) {
+			const errorData = await response.json();
+			alert('Erro: ' + errorData.message);
+		} else {
+			const respData = await response.json();
+			alert('Endereço cadastrado com sucesso!');
+
+			document.querySelector('#input-title').value = '';
+			document.querySelector('#input-zip-code').value = '';
+			document.querySelector('#input-address').value = '';
+			document.querySelector('#input-number').value = '';
+			document.querySelector('#input-complement').value = '';
+		}
+	} catch (error) {
+		alert('Erro ao cadastrar o endereço: ' + error.message);
+	} finally {
+		toggleSubmitButtonDisabled(button, 'Cadastrar endereço');
+	}
+});
+
+const zipCodeInput = document.getElementById('input-zip-code');
+const viacepHelper = new ViacepHelper();
+
+zipCodeInput.addEventListener('focusout', async (ev) => {
+	try {
+		const address = await viacepHelper.getAddress(ev.target.value);
+
+		if (address.erro) {
+			alert('O CEP informado é inválido');
+
+			return;
+		}
+
+		const parsedAddress = [
+			address.logradouro,
+			address.localidade,
+			address.estado,
+		].join(', ');
+
+		document.querySelector('#input-address').value = parsedAddress;
+		document.querySelector('#input-complement').value = address.complemento;
+	} catch (err) {
+		if (err instanceof Error) {
+			alert(err.message);
+		}
+	}
 });

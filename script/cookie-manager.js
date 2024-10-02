@@ -23,6 +23,12 @@ export class CookieManager {
 		else return this.#loadCookies();
 	}
 
+	getCookie(key) {
+		const cookies = this.getCookies();
+
+		return cookies[key];
+	}
+
 	setCookie(key, value) {
 		const expirationDate = new Date();
 		expirationDate.setTime(expirationDate.getTime() + this.#ttl);
