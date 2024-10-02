@@ -72,6 +72,11 @@ input:hover {
 	color: var(--black);
 }
 
+*:focus::selection {
+	background-color: var(--black);
+	color: var(--primary-color);
+}
+
 span.highlight {
 	color: var(--primary-color);
 	font-weight: 600;
