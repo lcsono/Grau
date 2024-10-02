@@ -1,3 +1,4 @@
+import { CONSTANTS } from './constants.js';
 import { CookieManager } from './cookie-manager.js';
 
 class LoginHandler {
@@ -6,8 +7,8 @@ class LoginHandler {
 	#cookieManager;
 
 	constructor() {
-		this.#BASE_URL = 'https://go-wash-api.onrender.com/api';
-		this.#GOWASH_SESSION = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
+		this.#BASE_URL = CONSTANTS.GOWASH_BASE_URL;
+		this.#GOWASH_SESSION = CONSTANTS.GOWASH_SESSION;
 		this.#cookieManager = new CookieManager();
 	}
 
@@ -92,8 +93,14 @@ class LoginHandler {
 		} else if (response.status === 200) {
 			const data = await response.json();
 
-			this.#cookieManager.setCookie('access_token', data.access_token);
-			sessionStorage.setItem('user_data', JSON.stringify(data.user));
+			this.#cookieManager.setCookie(
+				CONSTANTS.COOKIE_ACCESS_TOKEN_KEY,
+				data.access_token
+			);
+			sessionStorage.setItem(
+				CONSTANTS.SESSION_STORAGE_USER_DATA_KEY,
+				JSON.stringify(data.user)
+			);
 
 			window.location.href = '../view/home.html';
 		}
