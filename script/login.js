@@ -1,10 +1,15 @@
+import { CONSTANTS } from './constants.js';
+import { CookieManager } from './cookie-manager.js';
+
 class LoginHandler {
 	#BASE_URL;
 	#GOWASH_SESSION;
+	#cookieManager;
 
 	constructor() {
-		this.#BASE_URL = 'https://go-wash-api.onrender.com/api';
-		this.#GOWASH_SESSION = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
+		this.#BASE_URL = CONSTANTS.GOWASH_BASE_URL;
+		this.#GOWASH_SESSION = CONSTANTS.GOWASH_SESSION;
+		this.#cookieManager = new CookieManager();
 	}
 
 	#validateData({ email, password }) {
@@ -88,7 +93,14 @@ class LoginHandler {
 		} else if (response.status === 200) {
 			const data = await response.json();
 
-			localStorage.setItem('userData', JSON.stringify(data));
+			this.#cookieManager.setCookie(
+				CONSTANTS.COOKIE_ACCESS_TOKEN_KEY,
+				data.access_token
+			);
+			sessionStorage.setItem(
+				CONSTANTS.SESSION_STORAGE_USER_DATA_KEY,
+				JSON.stringify(data.user)
+			);
 
 			window.location.href = '../view/home.html';
 		}
@@ -159,3 +171,15 @@ button.addEventListener('click', (ev) => {
 		button.src = '../img/eye-slash-solid-black.svg';
 	}
 });
+
+const queryParams = window.location.href.split('?')?.[1];
+
+const emailQueryParam = queryParams
+	.split('&')
+	.find((param) => param.split('=')[0] === 'email');
+
+if (emailQueryParam) {
+	const emailInput = document.querySelector('#input-email');
+
+	emailInput.value = emailQueryParam.split('=')[1];
+}
