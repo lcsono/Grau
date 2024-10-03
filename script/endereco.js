@@ -81,11 +81,7 @@ document.getElementById('button').addEventListener('click', async function () {
 			const respData = await response.json();
 			alert('Endereço cadastrado com sucesso!');
 
-			document.querySelector('#input-title').value = '';
-			document.querySelector('#input-zip-code').value = '';
-			document.querySelector('#input-address').value = '';
-			document.querySelector('#input-number').value = '';
-			document.querySelector('#input-complement').value = '';
+			window.location.href = "../index.html";
 		}
 	} catch (error) {
 		alert('Erro ao cadastrar o endereço: ' + error.message);
