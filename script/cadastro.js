@@ -11,8 +11,13 @@ class RegisterHandler {
 		if (!name || !email || !password || !cpf_cnpj || !birthday) {
 			alert('Preencha os dados necessários');
 
+			if (password.length < 8){
+				alert('A senha deve ter no mínimo 8 caracteres')
+			}
+
 			return false;
 		}
+
 
 		const parsedBirthDate = new Date(birthday);
 		parsedBirthDate.setHours(parsedBirthDate.getHours() + 3); // GMT0300
@@ -161,3 +166,5 @@ submitButton.addEventListener('click', async (ev) => {
 
 	toggleSubmitButtonDisabled(submitButton);
 });
+const passwordInput = document.querySelector('input[type="button"]');
+submitButton.style.backgroundColor = 'var(--primary-color)';
