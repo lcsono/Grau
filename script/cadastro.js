@@ -13,6 +13,9 @@ class RegisterHandler {
 
 			return false;
 		}
+			if (password.length < 8){
+				alert('Senha deve ter mais de 8 caracteres')
+			}
 
 		const parsedBirthDate = new Date(birthday);
 		parsedBirthDate.setHours(parsedBirthDate.getHours() + 3); // GMT0300
