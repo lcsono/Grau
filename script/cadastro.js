@@ -5,17 +5,35 @@ class RegisterHandler {
 	constructor() {
 		this.#BASE_URL = 'https://go-wash-api.onrender.com/api';
 		this.#GOWASH_SESSION = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
+		
 	}
-
+	
 	#validateData({ name, email, password, cpf_cnpj, birthday }) {
 		if (!name || !email || !password || !cpf_cnpj || !birthday) {
-			alert('Preencha os dados necessários');
-
+			Swal.fire({
+				text: 'Preencha os dados necessários burro',
+				title: 'Erro',
+				icon: 'warning',
+			}
+			)
 			return false;
+
+
+			
 		}
 			if (password.length < 8){
-				alert('Senha deve ter mais de 8 caracteres')
+					Swal.fire({
+						title:"Teste",
+						text: "Senha deve ter 8 ou mais caracteres seu burro",
+						icon: "warning",
+
+					})
+
+					return false;
+
 			}
+			
+		
 
 		const parsedBirthDate = new Date(birthday);
 		parsedBirthDate.setHours(parsedBirthDate.getHours() + 3); // GMT0300
