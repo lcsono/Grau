@@ -103,7 +103,7 @@ class LoginHandler {
 				JSON.stringify(data.user)
 			);
 
-			window.location.href = '../view/home.html';
+			window.location.href = '../index.html';
 		}
 	}
 }
