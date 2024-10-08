@@ -3,6 +3,8 @@ import { CookieManager } from './cookie-manager.js';
 import { toggleSubmitButtonDisabled } from './toggle-submit-button-disabled.js';
 import { ViacepHelper } from './viacep-helper.js';
 
+const viacepHelper = new ViacepHelper();
+
 function validateField(fieldId, errorMessage) {
 	const field = document.getElementById(fieldId);
 	const errorField = document.getElementById(`${fieldId}-error`);
@@ -42,7 +44,7 @@ document.getElementById('button').addEventListener('click', async function () {
 	}
 
 	const title = document.querySelector('#input-title').value;
-	const cep = document.querySelector('#input-zip-code').value;
+	const zipCode = document.querySelector('#input-zip-code').value;
 	const address = document.querySelector('#input-address').value;
 	const number = document.querySelector('#input-number').value;
 	const complement = document.querySelector('#input-complement').value;
@@ -52,7 +54,7 @@ document.getElementById('button').addEventListener('click', async function () {
 
 	const data = {
 		title,
-		cep,
+		zipCode,
 		address,
 		number,
 		complement,
@@ -60,6 +62,14 @@ document.getElementById('button').addEventListener('click', async function () {
 
 	try {
 		const cookieManager = new CookieManager();
+		const address = await viacepHelper.getAddress(zipCode);
+
+		if (address.erro) {
+			alert('Endereço inválido');
+
+			return;
+		}
+
 		const accessToken = cookieManager.getCookie(
 			CONSTANTS.COOKIE_ACCESS_TOKEN_KEY
 		);
@@ -76,9 +86,11 @@ document.getElementById('button').addEventListener('click', async function () {
 
 		if (!response.ok) {
 			const errorData = await response.json();
+			
 			alert('Erro: ' + errorData.message);
 		} else {
-			const respData = await response.json();
+			await response.json();
+
 			alert('Endereço cadastrado com sucesso!');
 
 			window.location.href = "../index.html";
@@ -91,7 +103,6 @@ document.getElementById('button').addEventListener('click', async function () {
 });
 
 const zipCodeInput = document.getElementById('input-zip-code');
-const viacepHelper = new ViacepHelper();
 
 zipCodeInput.addEventListener('focusout', async (ev) => {
 	try {
