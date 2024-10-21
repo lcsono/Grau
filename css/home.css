@@ -1,32 +1,88 @@
-
 body {
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	flex-direction: column;
-	background-color: rgba(252, 249, 249, 0.822);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(252, 249, 249, 0.822);
 }
+
 .h1 {
-  margin: 15px 20px 15px 20px ;
+    margin: 15px;
+    font-size: 24px;
+    text-align: center;
 }
+
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 32px;
-  position: relative;
-  background-color: #c58b3e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    background-color: #c58b3e;
 }
 
 #cadastro-container {
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 15px 20px 15px 20px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px auto;
 }
 
-.cadastro-item {
-  margin-bottom: 10px;
+table {
+    width: 80%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+table thead {
+    background-color: #f4f4f4;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination li a {
+    padding: 8px 12px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+}
+
+.pagination li a:hover {
+    background-color: #45a049;
+}
+
+.pagination .active a {
+    background-color: #45a049;
 }
