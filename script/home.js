@@ -1,127 +1,99 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const apiURL = 'https://go-wash-api.onrender.com/api/auth/address';
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLWdvLXdhc2gtZWZjOWM5NTgyNjg3Lmhlcm9rdWFwcC5jb20vYXBpL2xvZ2luIiwiaWF0IjoxNzEwNDE3MjIyLCJuYmYiOjE3MTA0MTcyMjIsImp0aSI6InBsZll0aENEZ0U1NUNzMHEiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.z1pdEBkx8Hq01B7jNKa42NGxtFFHwb-7O_0y8krVWUY';
+import { CONSTANTS } from './constants.js';
+import { CookieManager } from './cookie-manager.js';
 
-    let currentPage = 1;
-    const rowsPerPage = 10;
-    let allData = [];
+document.addEventListener('DOMContentLoaded', () => {
+	// Função para buscar os endereços e preencher a tabela
+	async function fetchAddresses() {
+		try {
+			const cookieManager = new CookieManager();
+			const accessToken = cookieManager.getCookie(CONSTANTS.COOKIE_ACCESS_TOKEN_KEY);
 
-    async function buscarDados() {
-        try {
-            const response = await fetch(apiURL, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
-            });
-            const result = await response.json();
-            allData = result.data;
-            displayTableData(currentPage); // Exibe a primeira página
-            setupPagination(); // Configura os botões de paginação
-        } catch (error) {
-            console.error('Erro ao buscar dados:', error);
-        }
-    }
+			const response = await fetch(CONSTANTS.GOWASH_BASE_URL + '/auth/addresses', {
+				method: 'GET',
+				headers: {
+					'Authorization': `Bearer ${accessToken}`, // Utilizando o token para autenticação
+					'Content-Type': 'application/json'
+				}
+			});
 
-    function displayTableData(page) {
-        const tabela = document.querySelector('#cadastro-tabela tbody');
-        tabela.innerHTML = ''; 
+			if (!response.ok) {
+				const errorData = await response.json();
+				alert('Erro ao buscar os endereços: ' + errorData.message);
+				return;
+			}
 
-        const start = (page - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
-        const paginatedData = allData.slice(start, end); // Dados da página atual
+			const addresses = await response.json();
+			populateAddressTable(addresses);
 
-        paginatedData.forEach(item => {
-            const tr = document.createElement('tr');
+		} catch (error) {
+			alert('Erro ao buscar os endereços: ' + error.message);
+		}
+	}
 
-            tr.innerHTML = `
-                <td>${item.id}</td>
-                <td>${item.title || '-'}</td>
-                <td>${item.cep || '-'}</td>
-                <td>${item.address || '-'}</td>
-                <td>${item.number || '-'}</td>
-                <td>
-                    <button onclick="editarCadastro(${item.id}, '${item.title}', '${item.cep}', '${item.address}', '${item.number}')">Editar</button>
-                    <button onclick="apagarCadastro(${item.id})">Apagar</button>
-                </td>
-            `;
+	// Função para preencher a tabela com os dados dos endereços
+	function populateAddressTable(addresses) {
+		const tableBody = document.querySelector('#address-table tbody');
+		tableBody.innerHTML = ''; 
 
-            tabela.appendChild(tr);
-        });
-    }
+		addresses.forEach((address) => {
+			const row = document.createElement('tr');
 
-    function setupPagination() {
-        const pagination = document.getElementById("pagination");
-        pagination.innerHTML = '';
+			row.innerHTML = `
+				<td>${address.title}</td>
+				<td>${address.zipCode}</td>
+				<td>${address.address}</td>
+				<td>${address.number}</td>
+				<td>${address.complement || 'N/A'}</td>
+				<td>
+					<button class="edit-btn" data-id="${address.id}">Editar</button>
+					<button class="delete-btn" data-id="${address.id}">Excluir</button>
+				</td>
+			`;
 
-        const pageCount = Math.ceil(allData.length / rowsPerPage);
+			tableBody.appendChild(row);
+		});
+	}
 
-        for (let i = 1; i <= pageCount; i++) {
-            const li = document.createElement('li');
-            li.innerHTML = `<a href="#" onclick="changePage(${i})">${i}</a>`;
-            if (i === currentPage) {
-                li.classList.add("active"); // Destaca a página ativa
-            }
-            pagination.appendChild(li);
-        }
-    }
+	async function deleteAddress(id) {
+		try {
+			const cookieManager = new CookieManager();
+			const accessToken = cookieManager.getCookie(CONSTANTS.COOKIE_ACCESS_TOKEN_KEY);
 
-    window.changePage = function(page) {
-        currentPage = page;
-        displayTableData(page);
-        setupPagination(); // Atualiza a paginação
-    };
+			const response = await fetch(`${CONSTANTS.GOWASH_BASE_URL}/auth/address/${id}`, {
+				method: 'DELETE',
+				headers: {
+					'Authorization': `Bearer ${accessToken}`, // Utilizando o token para autenticação
+					'Content-Type': 'application/json'
+				}
+			});
 
-    window.editarCadastro = function(id, title, cep, address, number) {
-        const novoTitulo = prompt("Editar título", title);
-        const novoCep = prompt("Editar CEP", cep);
-        const novoEndereco = prompt("Editar endereço", address);
-        const novoNumero = prompt("Editar número", number);
+			if (!response.ok) {
+				const errorData = await response.json();
+				alert('Erro ao deletar o endereço: ' + errorData.message);
+				return;
+			}
 
-        if (novoTitulo && novoCep && novoEndereco && novoNumero) {
-            fetch(`${apiURL}/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    title: novoTitulo,
-                    cep: novoCep,
-                    address: novoEndereco,
-                    number: novoNumero
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Cadastro atualizado com sucesso!');
-                buscarDados();  
-            })
-            .catch(error => console.error('Erro ao atualizar cadastro:', error));
-        }
-    }
+			alert('Endereço excluído com sucesso!');
+			fetchAddresses(); // Atualiza a tabela após a exclusão
 
-    window.apagarCadastro = function(id) {
-        if (confirm("Tem certeza que deseja apagar este cadastro?")) {
-            fetch(`${apiURL}/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Cadastro apagado com sucesso!');
-                    buscarDados(); 
-                } else {
-                    alert('Erro ao apagar cadastro');
-                }
-            })
-            .catch(error => console.error('Erro ao apagar cadastro:', error));
-        }
-    }
+		} catch (error) {
+			alert('Erro ao deletar o endereço: ' + error.message);
+		}
+	}
 
-    buscarDados();
+	document.querySelector('#address-table').addEventListener('click', (event) => {
+		const target = event.target;
+
+		if (target.classList.contains('delete-btn')) {
+			const id = target.getAttribute('data-id');
+			if (confirm('Tem certeza que deseja excluir este endereço?')) {
+				deleteAddress(id);
+			}
+		} else if (target.classList.contains('edit-btn')) {
+			const id = target.getAttribute('data-id');
+			// window.location.href = `edit-address.html?id=${id}`; 
+		}
+	});
+
+	fetchAddresses();
 });
