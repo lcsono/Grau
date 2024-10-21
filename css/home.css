@@ -22,67 +22,59 @@ body {
     background-color: #c58b3e;
 }
 
-#cadastro-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 15px auto;
+#cadastro-tabela {
+    width: 90%; /* Aumenta o tamanho da tabela */
+    margin: 20px auto; /* Centraliza a tabela */
+    border-collapse: collapse; /* Remove os espaçamentos entre as bordas */
 }
 
-table {
-    width: 80%;
-    max-width: 1000px;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
+#cadastro-tabela th, #cadastro-tabela td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
     text-align: left;
 }
 
-table thead {
-    background-color: #f4f4f4;
-}
-
-table th, table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-table tr:hover {
-    background-color: #f1f1f1;
-}
-
-table th {
-    background-color: #4CAF50;
+#cadastro-tabela th {
+    background-color: #c58b3e; /* Cor de fundo para o cabeçalho */
     color: white;
-    text-align: center;
+    font-weight: bold;
+}
+
+#cadastro-tabela tr:nth-child(even) {
+    background-color: #f9f9f9; /* Cor de fundo para linhas alternadas */
+}
+
+#cadastro-tabela tr:hover {
+    background-color: #f1f1f1; /* Efeito hover */
 }
 
 .pagination {
     display: flex;
     justify-content: center;
-    list-style: none;
-    padding: 0;
+    padding: 10px 0;
+    margin: 20px auto;
 }
 
 .pagination li {
+    list-style-type: none;
     margin: 0 5px;
 }
 
 .pagination li a {
+    display: block;
     padding: 8px 12px;
-    text-decoration: none;
-    background-color: #4CAF50;
+    background-color: #264653;
     color: white;
+    text-decoration: none;
     border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-.pagination li a:hover {
-    background-color: #45a049;
+.pagination li a:hover, .pagination li.active a {
+    background-color: #2a9d8f; /* Cor ao passar o mouse ou página ativa */
 }
 
-.pagination .active a {
-    background-color: #45a049;
+.pagination li.active a {
+    font-weight: bold;
+    cursor: default;
 }

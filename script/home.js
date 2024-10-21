@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             const result = await response.json();
-            allData = result.data; // Armazena todos os dados
+            allData = result.data;
             displayTableData(currentPage); // Exibe a primeira página
             setupPagination(); // Configura os botões de paginação
         } catch (error) {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const start = (page - 1) * rowsPerPage;
         const end = start + rowsPerPage;
-        const paginatedData = allData.slice(start, end); // Divide os dados pela página
+        const paginatedData = allData.slice(start, end); // Dados da página atual
 
         paginatedData.forEach(item => {
             const tr = document.createElement('tr');
@@ -60,25 +60,19 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 1; i <= pageCount; i++) {
             const li = document.createElement('li');
             li.innerHTML = `<a href="#" onclick="changePage(${i})">${i}</a>`;
+            if (i === currentPage) {
+                li.classList.add("active"); // Destaca a página ativa
+            }
             pagination.appendChild(li);
         }
     }
 
-    function changePage(page) {
+    window.changePage = function(page) {
         currentPage = page;
         displayTableData(page);
+        setupPagination(); // Atualiza a paginação
+    };
 
-        // Atualiza a classe "active" da paginação
-        document.querySelectorAll(".pagination li").forEach((li, index) => {
-            if (index + 1 === page) {
-                li.classList.add("active");
-            } else {
-                li.classList.remove("active");
-            }
-        });
-    }
-
-    // Funções para editar e apagar os cadastros
     window.editarCadastro = function(id, title, cep, address, number) {
         const novoTitulo = prompt("Editar título", title);
         const novoCep = prompt("Editar CEP", cep);
