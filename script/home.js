@@ -132,10 +132,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (novoTitulo && novoCep && novoEndereco && novoNumero) {
             fetch(`${apiURL}/${currentEditId}`, {
-                method: 'PUT',
+                method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Cookie: `gowash_session=${session}`
                 },
                 body: JSON.stringify({
                     title: novoTitulo,
@@ -148,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 alert('Cadastro atualizado com sucesso!');
                 buscarDados();  
-                editModal.style.display = 'none'; // Fecha o modal
+                editModal.style.display = 'none'; 
             })
             .catch(error => console.error('Erro ao atualizar cadastro:', error));
         }

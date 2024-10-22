@@ -5,27 +5,41 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-    background-color: rgba(252, 249, 249, 0.822);
+    background-color: #f9f9f9; /* Cor de fundo mais clara */
+    font-family: Arial, sans-serif; /* Fonte legível */
 }
 
 .h1 {
     margin: 15px;
-    font-size: 24px;
+    font-size: 28px; /* Aumenta o tamanho do título */
     text-align: center;
+    color: #264653; /* Cor do texto do título */
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 32px;
+    padding: 16px 32px;
     background-color: #c58b3e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.nav-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-user {
+    font-size: 16px;
+    color: white;
 }
 
 #cadastro-tabela {
-    width: 90%; /* Aumenta o tamanho da tabela */
-    margin: 20px auto; /* Centraliza a tabela */
-    border-collapse: collapse; /* Remove os espaçamentos entre as bordas */
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
 }
 
 #cadastro-tabela th, #cadastro-tabela td {
@@ -35,17 +49,17 @@ body {
 }
 
 #cadastro-tabela th {
-    background-color: #c58b3e; /* Cor de fundo para o cabeçalho */
+    background-color: #c58b3e;
     color: white;
     font-weight: bold;
 }
 
 #cadastro-tabela tr:nth-child(even) {
-    background-color: #f9f9f9; /* Cor de fundo para linhas alternadas */
+    background-color: #f2f2f2; /* Cor de fundo para linhas alternadas */
 }
 
 #cadastro-tabela tr:hover {
-    background-color: #f1f1f1; /* Efeito hover */
+    background-color: #e0e0e0; /* Efeito hover */
 }
 
 .pagination {
@@ -71,7 +85,7 @@ body {
 }
 
 .pagination li a:hover, .pagination li.active a {
-    background-color: #2a9d8f; /* Cor ao passar o mouse ou página ativa */
+    background-color: #2a9d8f; 
 }
 
 .pagination li.active a {
@@ -80,7 +94,7 @@ body {
 }
 
 .modal {
-    display: none; /* Esconder o modal por padrão */
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -88,15 +102,59 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Pode ajustar conforme necessário */
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 460px;
+    max-width: 90%; /* Responsivo em dispositivos menores */
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #264653;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #264653;
+    outline: none;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #264653;
 }
 
 .close {
@@ -108,7 +166,7 @@ body {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #264653;
     text-decoration: none;
     cursor: pointer;
 }
