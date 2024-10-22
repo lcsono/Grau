@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/modal.css"> <!-- CSS do modal -->
 </head>
 <body>
     <nav class="nav">
@@ -29,12 +30,26 @@
         <tbody>
         </tbody>
       </table>
-      <ul class="pagination" id="pagination">
-
-      </ul>
-    </ul>
+      <ul class="pagination" id="pagination"></ul>
     </div>
 
-    <script src="../script/home.js"></script>
+    <!-- Modal para editar cadastro -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Editar Endereço</h2>
+            <label for="modalTitle">Título:</label>
+            <input type="text" id="modalTitle" required>
+            <label for="modalCep">CEP:</label>
+            <input type="text" id="modalCep" required>
+            <label for="modalAddress">Endereço:</label>
+            <input type="text" id="modalAddress" required>
+            <label for="modalNumber">Número:</label>
+            <input type="text" id="modalNumber" required>
+            <button id="saveButton">Salvar</button>
+        </div>
+    </div>
+
+    <script src="../script/home.js" defer></script>
 </body>
 </html>
