@@ -1,25 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
     const apiURL = 'https://go-wash-api.onrender.com/api/auth/address';
     
-    // Função para pegar o valor do cookie pelo nome
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-        return null; 
-    }
 
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vYXBpLWdvLXdhc2gtZWZjOWM5NTgyNjg3Lmhlcm9rdWFwcC5jb20vYXBpL2xvZ2luIiwiaWF0IjoxNzEwNDE3MjIyLCJuYmYiOjE3MTA0MTcyMjIsImp0aSI6InBsZll0aENEZ0U1NUNzMHEiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.z1pdEBkx8Hq01B7jNKa42NGxtFFHwb-7O_0y8krVWUY';
+    const token = localStorage.getItem('access_token');
     const session = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
 
     let currentPage = 1;
     const rowsPerPage = 10;
     let allData = [];
-    let currentEditId = null; // Variável para armazenar o ID do cadastro que está sendo editado
+    let currentEditId = null; 
 
     const editModal = document.getElementById('editModal');
     const closeModal = document.getElementById('closeModal');
     const saveButton = document.getElementById('saveButton');
+    const btnCadastrar = document.getElementById('btnCadastrar');
+
+    btnCadastrar.addEventListener('click', function () {
+      window.location.href = '../view/endereco.html'; 
+    });
 
     async function buscarDados() {
         try {
@@ -32,9 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
             const result = await response.json();
-            allData = result.data;
-            displayTableData(currentPage); 
-            setupPagination(); 
+            if (!result.data || result.data.length === 0) {
+                alert('Não há nenhum cadastro de endereço para este usuário!\n Por favor cadastre alguns endereços.');
+            } else {
+                allData = result.data;
+                displayTableData(currentPage); 
+                setupPagination(); 
+            }
         } catch (error) {
             console.error('Erro ao buscar dados:', error);
         }
@@ -59,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <td>${item.number || '-'}</td>
                 <td>
                     <button onclick="abrirModal(${item.id}, '${item.title}', '${item.cep}', '${item.address}', '${item.number}')">Editar</button>
-                    <button onclick="apagarCadastro(${item.id})">Apagar</button>
+                    <button onclick="apagarCadastro(${item.id})">Excluir</button>
                 </td>
             `;
 
