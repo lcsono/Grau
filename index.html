@@ -1,116 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<title>Document</title>
-		<link
-			rel="stylesheet"
-			href="./css/index.css"
-		/>
-		<link
-			rel="preconnect"
-			href="https://fonts.googleapis.com"
-		/>
-		<link
-			rel="preconnect"
-			href="https://fonts.gstatic.com"
-			crossorigin
-		/>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-			rel="stylesheet"
-		/>
-		<script
-			src="./script/index.js"
-			defer
-			type="module"
-		></script>
-	</head>
-	<body>
-		<nav>
-			<span id="logo-holder">
-				<img
-					src="./img/bigode.png"
-					alt="Logo Barber Shop"
-					class="logo"
-					id="audioControl"
-				/>
-			</span>
-			<h1>Barbearia <span class="highlight">Garage do Rodão</span></h1>
-			<ul>
-				<li>
-					<span class="icon-holder">
-						<img
-							src="./img/user.png"
-							alt="User"
-						/>
-					</span>
-					<a href="./view/login.html" id="login-or-user-name">Entrar</a>
-				</li>
-				<li>
-					<a href="./view/cadastro.html" id="register-button">Não possui conta?</a>
-				</li>
-			</ul>
-		</nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./script/index.js" defer type="module"></script>
+  </head>
+  <body>
+    <nav>
+      <span id="logo-holder">
+        <img
+          src="./img/bigode.png"
+          alt="Logo Barber Shop"
+          class="logo"
+          id="audioControl"
+        />
+      </span>
+      <h1>Barbearia <span class="highlight">Garage do Rodão</span></h1>
+      <ul>
+        <li>
+          <span class="icon-holder">
+            <img src="./img/user.png" alt="User" />
+          </span>
+          <a href="./view/login.html" id="login-or-user-name">Entrar</a>
+        </li>
+        <li>
+          <a href="./view/home.html" id="list-addresses"> Lista de Endereços </a>
+        </li>
+        <li>
+          <a href="./view/cadastro.html" id="register-button"
+            >Não possui conta?</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-		<div class="content-wrapper">
-			<div id="greeting">
-				<h1>Encontre franquias próximas</h1>
-				<p>
-					Sempre <span class="highlight">prontos</span> para cuidar da sua
-					aparência com <span class="highlight">excelência</span>. Seja para
-					<span class="highlight">cortes de cabelo</span>, barba ou sobrancelha,
-					nossa equipe está preparada para garantir que você saia com um
-					<span class="highlight">visual impecável</span>.
-				</p>
-			</div>
+    <div class="content-wrapper">
+      <div id="greeting">
+        <h1>Encontre franquias próximas</h1>
+        <p>
+          Sempre <span class="highlight">prontos</span> para cuidar da sua
+          aparência com <span class="highlight">excelência</span>. Seja para
+          <span class="highlight">cortes de cabelo</span>, barba ou sobrancelha,
+          nossa equipe está preparada para garantir que você saia com um
+          <span class="highlight">visual impecável</span>.
+        </p>
+      </div>
 
-			<div class="cards-container">
-				<div class="card">
-					<img
-						src="./img/cortes.png"
-						alt="Serviço 1"
-					/>
-					<div class="card-content">
-						<h2>Cabelo</h2>
-						<p>Agende o seu corte de cabelo.</p>
-					</div>
-				</div>
-				<div class="card">
-					<img
-						src="./img/barba.jpeg"
-						alt="Serviço 2"
-					/>
-					<div class="card-content">
-						<h2>Barba</h2>
-						<p>Faça a sua barba conosco.</p>
-					</div>
-				</div>
-				<div class="card">
-					<img
-						src="./img/sobrancelha.jpeg"
-						alt="Serviço 3"
-					/>
-					<div class="card-content">
-						<h2>Sobrancelha</h2>
-						<p>Nós cuidamos das suas sobrancelhas.</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="cards-container">
+        <div class="card">
+          <img src="./img/cortes.png" alt="Serviço 1" />
+          <div class="card-content">
+            <h2>Cabelo</h2>
+            <p>Agende o seu corte de cabelo.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/barba.jpeg" alt="Serviço 2" />
+          <div class="card-content">
+            <h2>Barba</h2>
+            <p>Faça a sua barba conosco.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/sobrancelha.jpeg" alt="Serviço 3" />
+          <div class="card-content">
+            <h2>Sobrancelha</h2>
+            <p>Nós cuidamos das suas sobrancelhas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<audio
-			id="backgroundMusic"
-			autoplay
-		>
-			<source
-				src="./musica.mp3"
-				type="audio/mpeg"
-			/>
-		</audio>
-	</body>
+    <audio id="backgroundMusic" autoplay>
+      <source src="./musica.mp3" type="audio/mpeg" />
+    </audio>
+  </body>
 </html>

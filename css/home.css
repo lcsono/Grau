@@ -1,32 +1,105 @@
+@import url("./default.css");
 
 body {
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	flex-direction: column;
-	background-color: rgba(252, 249, 249, 0.822);
-}
-.h1 {
-  margin: 15px 20px 15px 20px ;
-}
-.nav {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 32px;
-  position: relative;
-  background-color: #c58b3e;
+  flex-direction: column;
+  background-color: var(--black);
+}
+
+.h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 15px 20px 15px 20px;
 }
 
 #cadastro-container {
-  border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
-  margin: 15px 20px 15px 20px ;
+  margin: 15px 20px 15px 20px;
 }
 
 .cadastro-item {
   margin-bottom: 10px;
+}
+/* Style for the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  font-family: "Arial", sans-serif;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+/* Table header */
+table thead th {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Table rows */
+table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table data cells */
+table tbody td {
+  padding: 12px 15px;
+}
+
+/* Zebra striping for table rows */
+table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hover effect for rows */
+table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+table tbody td {
+  color: var(--black);
+}
+
+/* Responsive behavior */
+@media screen and (max-width: 600px) {
+  table thead {
+    display: none;
+  }
+
+  table,
+  table tbody,
+  table tr,
+  table td {
+    display: block;
+    width: 100%;
+  }
+
+  table tbody tr {
+    margin-bottom: 15px;
+  }
+
+  table tbody td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  table tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
 }
