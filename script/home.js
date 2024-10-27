@@ -1,9 +1,13 @@
+import { CONSTANTS } from "./constants.js";
+import { CookieManager } from "./cookie-manager.js";
+
 document.addEventListener('DOMContentLoaded', function () {
     const apiURL = 'https://go-wash-api.onrender.com/api/auth/address';
+    const cookieManager = new CookieManager();
     
 
-    const token = localStorage.getItem('access_token');
-    const session = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
+    const token = cookieManager.getCookie(CONSTANTS.COOKIE_ACCESS_TOKEN_KEY);
+    // const session = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
 
     let currentPage = 1;
     const rowsPerPage = 10;
@@ -26,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
-                    Cookie: `gowash_session=${session}`
+                    // Cookie: `gowash_session=${session}`
                 }
             });
             const result = await response.json();
