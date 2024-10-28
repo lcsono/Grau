@@ -8,10 +8,9 @@ export class CookieManager {
 		let parsedCookies = {};
 
 		for (const cookie of cookies.split(';')) {
-			const [key, value] = cookie.split('=');
-
-			parsedCookies[key] = value;
-		}
+            const [key, value] = cookie.split('=').map(c => c.trim()); 
+            parsedCookies[key] = decodeURIComponent(value); 
+        }
 
 		this.#cookies = parsedCookies;
 

@@ -4,9 +4,11 @@ import { CookieManager } from "./cookie-manager.js";
 document.addEventListener('DOMContentLoaded', function () {
     const apiURL = 'https://go-wash-api.onrender.com/api/auth/address';
     const cookieManager = new CookieManager();
-    
 
-    const token = cookieManager.getCookie(CONSTANTS.COOKIE_ACCESS_TOKEN_KEY);
+    const token = cookieManager.getCookie(
+      CONSTANTS.COOKIE_ACCESS_TOKEN_KEY
+    );
+    console.log("Token acessado:", token);
     // const session = '0hGqRHf0q38ETNgEcJGce30LcPtuPKo48uKtb7Oj';
 
     let currentPage = 1;
@@ -28,21 +30,24 @@ document.addEventListener('DOMContentLoaded', function () {
             const response = await fetch(apiURL, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
-                    // Cookie: `gowash_session=${session}`
+                    Authorization: `Bearer ${token}`,
+                    // Cookie: `gowash_session=${CONSTANTS.GOWASH_SESSION}`
                 }
             });
             const result = await response.json();
-            if (!result.data || result.data.length === 0) {
-                alert('Não há nenhum cadastro de endereço para este usuário!\n Por favor cadastre alguns endereços.');
+            if (!result.data) {
+              alert(result.status)
+                
+            } else if (result.data.length === 0) {
+              alert('Não há nenhum cadastro de endereço para este usuário!\n Por favor cadastre algun(s) endereços.'); 
             } else {
-                allData = result.data;
-                displayTableData(currentPage); 
-                setupPagination(); 
+              allData = result.data;
+              displayTableData(currentPage); 
+              setupPagination();
             }
         } catch (error) {
-            console.error('Erro ao buscar dados:', error);
+          console.error('Erro ao buscar dados:', error);
         }
     }
 
@@ -114,16 +119,16 @@ document.addEventListener('DOMContentLoaded', function () {
             fetch(`${apiURL}/${id}`, {
                 method: 'DELETE',
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 }
             })
             .then(response => {
                 if (response.ok) {
-                    alert('Cadastro apagado com sucesso!');
+                    alert('Cadastro apagado com sucesso!\n');
                     buscarDados(); 
                 } else {
-                    alert('Erro ao apagar cadastro');
+                    alert('Erro ao apagar cadastro\n', response.data);
                 }
             })
             .catch(error => console.error('Erro ao apagar cadastro:', error));
@@ -140,9 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
             fetch(`${apiURL}/${currentEditId}`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json',
-                    Cookie: `gowash_session=${session}`
+                    // Cookie: `gowash_session=${session}`
                 },
                 body: JSON.stringify({
                     title: novoTitulo,
@@ -153,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(response => response.json())
             .then(data => {
-                alert('Cadastro atualizado com sucesso!');
+                alert('Cadastro atualizado com sucesso!\n', data.response);
                 buscarDados();  
                 editModal.style.display = 'none'; 
             })
