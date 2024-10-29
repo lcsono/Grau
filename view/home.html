@@ -1,20 +1,96 @@
-<!DOCTYPE html>
 <html lang="PT-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/home.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <script src="../script/home.js" defer type="module"></script>
-  </head>
-  <body>
-    <a href="../index.html" class="h1">Endereços Cadastrados</a>
-    <div id="cadastro-container"></div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Dados do Cadastro</title>
+		<link
+			rel="stylesheet"
+			href="../css/home.css"
+		/>
+	</head>
+	<body>
+		<nav>
+			<a class="nav-title" href="../index.html"
+				>Barbearia <span class="highlight">Garage do Rodão</span></a
+			>
+			<button
+				type="button"
+				class="buttonCadastrar"
+				id="btnCadastrar"
+			>
+				Cadastrar Endereço
+			</button>
+		</nav>
+
+		<h1 class="h1">Dados do Cadastro</h1>
+
+		<div id="cadastro-container">
+			<table id="cadastro-tabela">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Título</th>
+						<th>CEP</th>
+						<th>Endereço</th>
+						<th>Número</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+
+			<ul
+				class="pagination"
+				id="pagination"
+			></ul>
+		</div>
+
+		<div
+			id="editModal"
+			class="modal"
+		>
+			<div class="modal-content">
+				<span
+					class="close"
+					id="closeModal"
+					>&times;</span
+				>
+				<h2>Editar Endereço</h2>
+				<label for="modalTitle">Título:</label>
+				<input
+					type="text"
+					id="modalTitle"
+					required
+				/>
+				<label for="modalCep">CEP:</label>
+				<input
+					type="text"
+					id="modalCep"
+					required
+				/>
+				<label for="modalAddress">Endereço:</label>
+				<input
+					type="text"
+					id="modalAddress"
+					required
+				/>
+				<label for="modalNumber">Número:</label>
+				<input
+					type="text"
+					id="modalNumber"
+					required
+				/>
+				<button id="saveButton">Salvar</button>
+			</div>
+		</div>
+
+		<script
+			type="module"
+			src="../script/home.js"
+		></script>
+	</body>
 </html>
+

@@ -1,247 +1,249 @@
 @import url(./default.css);
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--black);
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--black);
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 32px;
-  position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 24px 32px;
+	position: relative;
 }
 
 nav #logo-holder {
-  background: radial-gradient(
-    circle,
-    var(--primary-color) 0%,
-    var(--secondary-color) 100%
-  );
+	background: radial-gradient(
+		circle,
+		var(--primary-color) 0%,
+		var(--secondary-color) 100%
+	);
 
-  border-radius: 100%;
-  height: 48px;
-  aspect-ratio: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: spin 2s linear infinite;
-  cursor: pointer;
+	border-radius: 100%;
+	height: 48px;
+	aspect-ratio: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	animation: spin 2s linear infinite;
+	cursor: pointer;
 }
 
 nav #logo-holder img {
-  width: 50%;
-  aspect-ratio: 1;
+	width: 50%;
+	aspect-ratio: 1;
 }
 
 nav h1 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 30px;
-  color: white;
-  font-size: 2rem;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 30px;
+	color: white;
+	font-size: 2rem;
 }
 
 nav h1 span {
-  color: var(--primary-color);
+	color: var(--primary-color);
 }
 
 nav ul {
-  list-style-type: none;
-  display: flex;
-  gap: 2rem;
+	list-style-type: none;
+	display: flex;
+	gap: 2rem;
 }
 
 nav ul li a {
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: white;
-  transition: 0.3s all ease;
-  position: relative;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 1.3rem;
+	color: white;
+	transition: 0.3s all ease;
+	position: relative;
 }
 
 ul li {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  gap: 12px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	gap: 12px;
 }
 
 .icon-holder img {
-  width: 32px;
-  aspect-ratio: 1;
+	width: 32px;
+	aspect-ratio: 1;
 }
 
 ul li:last-child {
-  transition: 300ms ease all;
-  border: 2px solid var(--primary-color);
-  padding: 12px 24px;
-  border-radius: 32px;
+	transition: 300ms ease all;
+	border: 2px solid var(--primary-color);
+	padding: 12px 24px;
+	border-radius: 32px;
 }
 
 ul li:last-child:hover {
-  background-color: var(--primary-color);
+	background-color: var(--primary-color);
 }
 
 ul li:last-child:hover a {
-  color: black;
+	color: black;
 }
 
-ul li:first-child::after,
-ul li:nth-child(2)::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  height: 3px;
-  width: 0;
-  background: var(--primary-color);
-  transform: translateX(-50%);
-  transform-origin: center;
-  transition: width 0.3s ease;
+ul li::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	height: 3px;
+	width: 0;
+	background: var(--primary-color);
+	transform: translateX(-50%);
+	transform-origin: center;
+	transition: width 0.3s ease;
 }
 
-ul li:first-child:hover a,
-ul li:nth-child(2):hover a {
-  color: var(--primary-color-second-variant);
+ul li:last-child::after {
+	display: none;
+}
+
+ul li:hover a {
+	color: var(--primary-color-second-variant);
 }
 
 ul li:hover::after {
-  width: 100%;
+	width: 100%;
 }
 
 .content-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-  position: relative;
-  background-image: url("../img/bg_image.jpg");
-  background-size: 150vh;
-  background-position: right;
-  background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+	position: relative;
+	background-image: url('../img/bg_image.jpg');
+	background-size: 150vh;
+	background-position: right;
+	background-repeat: no-repeat;
 }
 
 .content-wrapper::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(6, 6, 6, 1) 40%,
-    rgba(6, 6, 6, 0.2) 100%
-  );
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		rgba(6, 6, 6, 1) 40%,
+		rgba(6, 6, 6, 0.2) 100%
+	);
 }
 
 #greeting {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: start;
-  width: fit-content;
-  flex-grow: 1;
-  z-index: 1;
-  gap: 20px;
-  padding: 0 64px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: start;
+	width: fit-content;
+	flex-grow: 1;
+	z-index: 1;
+	gap: 20px;
+	padding: 0 64px;
 }
 
 #greeting h1 {
-  font-size: 3rem;
-  font-weight: 700;
+	font-size: 3rem;
+	font-weight: 700;
 }
 
 #greeting p {
-  font-size: 1.5rem;
-  max-width: 50%;
+	font-size: 1.5rem;
+	max-width: 50%;
 }
 
 .cards-container {
-  height: 40%;
-  z-index: 1;
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0 20px;
-  gap: 20px;
+	height: 40%;
+	z-index: 1;
+	position: relative;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 0 20px;
+	gap: 20px;
 }
 
 .card {
-  position: relative;
-  background-color: var(--primary-color-second-variant);
-  cursor: pointer;
-  width: 400px;
-  height: 250px;
-  overflow: hidden;
-  transition: transform 150ms ease;
+	position: relative;
+	background-color: var(--primary-color-second-variant);
+	cursor: pointer;
+	width: 400px;
+	height: 250px;
+	overflow: hidden;
+	transition: transform 150ms ease;
 }
 
 .card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
 }
 
 .card-content {
-  position: absolute;
-  bottom: -100%;
-  left: 0;
-  right: 0;
-  background-color: #ef9523bb;
-  padding: 15px;
-  text-align: center;
-  height: 100px;
-  transition: all 0.3s ease;
+	position: absolute;
+	bottom: -100%;
+	left: 0;
+	right: 0;
+	background-color: #ef9523bb;
+	padding: 15px;
+	text-align: center;
+	height: 100px;
+	transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 .card:hover .card-content {
-  bottom: 0;
+	bottom: 0;
 }
 
 .card h2 {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 .card p {
-  font-size: 1.2em;
+	font-size: 1.2em;
 }
 
 .card h2,
 .card p {
-  font-weight: 700;
-  color: var(--black);
+	font-weight: 700;
+	color: var(--black);
 }
 
 #audio {
-  visibility: hidden;
+	visibility: hidden;
 }

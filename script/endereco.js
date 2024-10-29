@@ -52,13 +52,13 @@ document.getElementById("button").addEventListener("click", async function () {
   const button = document.querySelector("#button");
   toggleSubmitButtonDisabled(button, "Cadastrar endereço");
 
-  const data = {
-    title,
-    cep: zipCode,
-    address,
-    number,
-    complement,
-  };
+	const data = {
+		title,
+		cep: zipCode,
+		address,
+		number,
+		complement,
+	};
 
   try {
     const cookieManager = new CookieManager();
@@ -84,22 +84,22 @@ document.getElementById("button").addEventListener("click", async function () {
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) {
-      const errorData = await response.json();
+		if (!response.ok) {
+			const errorData = await response.json();
 
-      alert("Erro: " + errorData.message);
-    } else {
-      await response.json();
+			alert('Erro: ' + errorData.message);
+		} else {
+			await response.json();
 
       alert("Endereço cadastrado com sucesso!");
 
-      window.location.href = "../index.html";
-    }
-  } catch (error) {
-    alert("Erro ao cadastrar o endereço: " + error.message);
-  } finally {
-    toggleSubmitButtonDisabled(button, "Cadastrar endereço");
-  }
+			window.location.href = './home.html';
+		}
+	} catch (error) {
+		alert('Erro ao cadastrar o endereço: ' + error.message);
+	} finally {
+		toggleSubmitButtonDisabled(button, 'Cadastrar endereço');
+	}
 });
 
 const zipCodeInput = document.getElementById("input-zip-code");

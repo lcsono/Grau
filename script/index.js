@@ -30,9 +30,10 @@ const userData = sessionStorage.getItem(
   CONSTANTS.SESSION_STORAGE_USER_DATA_KEY
 );
 
-const link = document.querySelector("#login-or-user-name");
-const registerButton = document.querySelector("#register-button");
-const listAddresses = document.querySelector("#list-addresses");
+const link = document.querySelector('#login-or-user-name');
+const registerButton = document.querySelector('#register-button');
+const title = document.querySelector('h1');
+const listAddressButton = document.querySelector('#list-addresses-button');
 
 if (userData) {
   const parsedUserData = JSON.parse(userData);
@@ -43,15 +44,22 @@ if (userData) {
   registerButton.textContent = "Cadastrar endereço";
   registerButton.href = "./view/endereco.html";
 
-	listAddresses.textContent = 'Listar endereços'
-	listAddresses.href = './view/home.html'
+	registerButton.textContent = 'Cadastrar endereço';
+	registerButton.href = './view/endereco.html';
+
+	title.innerHTML = '';
+
+	listAddressButton.textContent = 'Listar Endereços';
+	listAddressButton.href = './view/home.html';
 } else {
   link.textContent = "Entrar";
   link.href = "./view/login.html";
 
-  registerButton.textContent = "Não possui conta?";
-  registerButton.href = "./view/cadastro.html";
+	registerButton.textContent = 'Não possui conta?';
+	registerButton.href = './view/cadastro.html';
 
-	listAddresses.textContent = ''
-	listAddresses.href = ''
+	title.innerHTML = 'Barbearia <spane class="highlight">Garage do Rodão</span>';
+
+	listAddressButton.textContent = '';
+	listAddressButton.href = '#';
 }
