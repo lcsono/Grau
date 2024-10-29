@@ -54,7 +54,7 @@ document.getElementById('button').addEventListener('click', async function () {
 
 	const data = {
 		title,
-		zipCode,
+		cep: zipCode,
 		address,
 		number,
 		complement,
@@ -86,14 +86,14 @@ document.getElementById('button').addEventListener('click', async function () {
 
 		if (!response.ok) {
 			const errorData = await response.json();
-			
+
 			alert('Erro: ' + errorData.message);
 		} else {
 			await response.json();
 
 			alert('Endereço cadastrado com sucesso!');
 
-			window.location.href = "../index.html";
+			window.location.href = './home.html';
 		}
 	} catch (error) {
 		alert('Erro ao cadastrar o endereço: ' + error.message);

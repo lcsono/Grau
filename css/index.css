@@ -106,7 +106,7 @@ ul li:last-child:hover a {
 	color: black;
 }
 
-ul li:first-child::after {
+ul li::after {
 	content: '';
 	display: block;
 	position: absolute;
@@ -120,7 +120,11 @@ ul li:first-child::after {
 	transition: width 0.3s ease;
 }
 
-ul li:first-child:hover a {
+ul li:last-child::after {
+	display: none;
+}
+
+ul li:hover a {
 	color: var(--primary-color-second-variant);
 }
 
