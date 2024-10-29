@@ -138,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	saveButton.onclick = function (ev) {
 		ev.preventDefault();
 		saveButton.disabled = true;
+		saveButton.style.backgroundColor = 'var(--disabled)';
 
 		const novoTitulo = document.getElementById('modalTitle').value;
 		const novoCep = document.getElementById('modalCep').value;
@@ -167,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				.catch((error) => console.error('Erro ao atualizar cadastro:', error))
 				.finally(() => {
 					saveButton.disabled = false;
+					saveButton.style.backgroundColor = 'var(--primary-color)';
 				});
 		}
 	};
