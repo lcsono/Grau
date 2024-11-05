@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
 						alert('Erro ao apagar cadastro\n', response.data);
 					}
 				})
-				.catch((error) => console.error('Erro ao apagar cadastro:', error));
+				.catch((error) => alert('Erro ao apagar cadastro:', error));
 		}
 	};
 
