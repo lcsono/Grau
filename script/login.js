@@ -163,7 +163,7 @@ button.addEventListener('click', (ev) => {
 const queryParams = window.location.href.split('?')?.[1];
 
 const emailQueryParam = queryParams
-	.split('&')
+	?.split('&')
 	.find((param) => param.split('=')[0] === 'email');
 
 if (emailQueryParam) {

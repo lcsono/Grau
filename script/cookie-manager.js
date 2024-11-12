@@ -9,7 +9,10 @@ export class CookieManager {
 
 		for (const cookie of cookies.split(';')) {
 			const [key, value] = cookie.split('=');
-			parsedCookies[key] = value.trim();
+
+			if (value) {
+				parsedCookies[key] = value.trim();
+			}
 		}
 
 		this.#cookies = parsedCookies;

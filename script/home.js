@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	const token = cookieManager.getCookie(CONSTANTS.COOKIE_ACCESS_TOKEN_KEY);
 
+	if (!token) window.location.href = '../index.html';
+
 	let currentPage = 1;
 	const rowsPerPage = 10;
 	let allData = [];
