@@ -20,6 +20,7 @@ class LoginHandler {
 		);
 		let isValid = true;
 
+		
 		if (!email) {
 			emailErrorMessage.textContent = 'Insira um e-mail';
 			isValid = false;
@@ -34,10 +35,6 @@ class LoginHandler {
 
 		if (!password) {
 			passwordErrorMessage.textContent = 'Informe a senha';
-			isValid = false;
-		} else if (password.length < 8) {
-			passwordErrorMessage.textContent =
-				'A senha deve ter no mínimo 8 caracteres';
 			isValid = false;
 		}
 
@@ -88,7 +85,7 @@ class LoginHandler {
 		const response = await fetch(this.#BASE_URL + '/login', fetchOptions);
 
 		if (response.status === 401) {
-			this.#dealWithResponseError('Usuário não está ativo');
+			this.#dealWithResponseError('Dados de login inválido');
 		} else if (response.status === 404) {
 			this.#dealWithResponseError('Usuário não encontrado');
 		} else if (response.status === 200) {
